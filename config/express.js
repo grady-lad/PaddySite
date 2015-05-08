@@ -3,6 +3,7 @@ var session      = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var flash    = require('connect-flash');
+var multer   = require('multer');
 
 /**
  * expose for now
@@ -19,6 +20,7 @@ module.exports = function (app, passport) {
 	//=============================
 	app.use(bodyParser.urlencoded({ extended: true })); //configure app to use bodyParser()
 	app.use(bodyParser.json()); //this will let us get the data from a POST
+	app.use(multer());
 	//======================
 	// View Configuration
 	//=======================
