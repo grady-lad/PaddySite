@@ -1,0 +1,36 @@
+extends ../layout
+block content
+  .col-sm-6.col-sm-offset-3
+    h1
+      span.fa.fa-sign-in Signup
+    if (message.length > 0)
+      .alert.alert-message #{message}
+    form#signup(
+      method="post"
+      name="signup"
+      action="/signup"
+      enctype="application/x-www-form-urlencoded"
+    )
+      .form-group
+        label Email
+        input.form-control#email(
+          type="text"
+          name="email"
+         )
+      .form-group
+        label Password
+        input.form-control#password(
+          type="password"
+          name="password"
+         )
+         
+        button.btn.btn-warning.btn-lg(
+          type="submit"
+        ) Signup
+        
+        
+        p Already have an account? 
+          a(href="/login") Login
+        p Or go 
+          a(href="/") home
+      
