@@ -13,7 +13,7 @@ module.exports = function (app, passport) {
   // =======================
   app.get("/" , site.home);
   app.get("/gallery", site.gallery);
-  
+  app.get("/contact", site.contact);
   //========================
   // 		User Routes    
   //========================

@@ -4,10 +4,6 @@ exports.home = function (req, res) {
 }
 
 exports.gallery = function (req, res) {
-  //Image.find({}, function(err, image){
-    //if (err)
-      //res.send(err);
-    //else
 	var images = [];
 	var dir = "../public"
 	var files = fs.readdirSync(__dirname + "/../public/uploads");
@@ -18,7 +14,13 @@ exports.gallery = function (req, res) {
         images.push(name);
     }
     	res.render("site/gallery", {images: images });
-  //});
 }
+
+exports.contact = function(req, res) {
+	res.render("site/contact");
+
+
+}
+
 
 
