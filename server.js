@@ -10,7 +10,7 @@ var app = express();
 // DATABASE CONNECTION
 //=====================================
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/whereswalliedb');
+mongoose.connect('mongodb://localhost/paddysdb');
 
 var db = mongoose.connection;
 

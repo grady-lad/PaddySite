@@ -1,5 +1,5 @@
 var config = module.exports;
-var PRODUCTION = process.env.NODE_ENV === "production";
+process.env.NODE_ENV === "development";
 
 config.express = {
   port: process.env.EXPRESS_PORT || 3000,
@@ -12,10 +12,4 @@ config.default = {
 
 
 
-if (PRODUCTION) {
-  //for example
-  config.express.ip = "0.0.0.0";
-}
-//config.db same deal
-//config.email etc
-//config.log
+
