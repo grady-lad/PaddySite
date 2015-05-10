@@ -17,7 +17,7 @@ exports.gallery = function (req, res) {
 }
 
 exports.contact = function(req, res) {
-	res.render("site/contact");
+	res.render("site/contact" , {message: '', errors: {} });
 
 
 }
