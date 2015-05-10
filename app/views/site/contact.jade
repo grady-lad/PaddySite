@@ -1,3 +1,39 @@
 extends ../layout
 block content
-  h1 Contact Form
+	- function isObjectEmpty(obj){
+	-     var name;
+	-     for(name in obj){
+	-         return false;
+	-     }
+	-     return true;
+	- }
+	.col-md-10.col-md-offset-1#form-wrapper
+		.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2
+			form#feedback(
+					method="post"
+					name="feedback"
+					enctype="application/x-www-form-urlendcoded"
+					)
+						.row
+							.col-md-6.col-md-offset-3
+								input#email(
+										class="input" name="email" type="text" 
+										value="" size="40" placeholder="Email"
+										)
+						.row
+							.col-md-6.col-md-offset-3
+								textarea#suggestion(
+										class="input" name="suggestion" 
+								        rows="8" cols="80" placeholder="Suggestions?"
+								        )
+						.row
+							.col-md-6.col-md-offset-3
+								input.btn.btn-default#submit_button(type ="submit" value="Send")
+						.row
+							.col-md-6.col-md-offset-3
+								-   if (isObjectEmpty(errors) == false)
+										#errorMessage
+											p= "Woops, we need:"
+												each error in errors
+													li#errorMessage= error.msg
+									p#successMessage #{message}
