@@ -36,7 +36,7 @@ module.exports = function (app, passport) {
   // Control Panel Routes
   //======================
   app.get("/imagepanel" , uploader.displayPanel); 
-  app.post("/upload" , uploader.upload);
+  app.post("/imagepanel" , uploader.upload);
 
   //================
   // Error Handling
