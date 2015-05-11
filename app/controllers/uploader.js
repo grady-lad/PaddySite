@@ -2,19 +2,19 @@ var fs    = require('fs');
 var Photo  = require('../models/photos');
 var cloudinary = require('cloudinary');
 
+
 exports.displayPanel = function (req, res) {
-	console.log("Hey ? what the fuck is going on?");
-	res.render('imageuploader/uploader');	
+	console.log("hhehehe");
+	Photo.find(function(err, photos) {
+		console.log("we herererererer");
+		if (err) return console.error(err);
+		res.render('imageuploader/uploader', {photos: photos });
+		
+	});	
 }
 
 exports.upload = function (req, res) {	
-	
-	//if(!req.file){
-		//console.log("well were in here");
-		//res.render('imageuploader/uploader', {message: 'Please select a file'});
-	//}
-	//else{
-	
+
 	var photo = new Photo(req.body);
 	// Get temp file path 
 	var imageFile = req.files.image.path;
@@ -27,9 +27,9 @@ exports.upload = function (req, res) {
 	    photo.save();
 	 })
 	 .finally(function(){
-		 res.render('imageuploader/uploader',{photo:photo,upload : photo.image});
-	 });
-	
+		 //res.render('imageuploader/uploader');
+		 res.redirect('/imagepanel');
+	 });	
 }
 
 exports.remove = function (req, res) {	
