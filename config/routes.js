@@ -37,6 +37,7 @@ module.exports = function (app, passport) {
   //======================
   app.get("/imagepanel" , uploader.displayPanel); 
   app.post("/imagepanel" , uploader.upload);
+  app.post("/removeImage" , uploader.remove);
 
   //================
   // Error Handling
