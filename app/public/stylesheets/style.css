@@ -418,3 +418,20 @@ h5 {
   width: 200px;
   margin-left: 3%;
 }
+
+.remove-image:hover img{
+    opacity:0.5;
+}
+
+.remove-image:hover input {
+    display: block;
+}
+.remove-image input {
+    position:absolute;
+    display:none;
+}
+
+.remove-image input.remove {
+    top:50%;
+    left:50%;
+}

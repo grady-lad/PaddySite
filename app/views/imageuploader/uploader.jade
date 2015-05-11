@@ -18,4 +18,16 @@ block content
       .form-group
         button.btn.btn-warning(type="submit", name='remove') remove Image
    .col-sm-6
-     
+     if photos.length
+      - for (var j = 0; j < photos.length; j++)
+          if (j == 0 || j % 3 == 0)
+            .row
+              - for (var i = j; i < (3 + j); i++ )
+                - if (i >= photos.length) break;
+                  .col-md-4.remove-image
+                    img(src="#{photos[i].image.url}" height="200" width="200")
+                    form(action="/removeImage", method="POST", enctype="multipart/form-data")
+                      input.remove(type="submit" value="Remove")
+                  
+     else
+       h3.text-muted No images uploaded yet.
