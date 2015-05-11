@@ -1,12 +1,12 @@
 extends ../layout
 block content
   h1 Gallery
-  if images.length
-      - for (var j = 0; j < images.length; j++)
+  if photos.length
+      - for (var j = 0; j < photos.length; j++)
           if (j == 0 || j % 3 == 0)
             .row
               - for (var i = j; i < (3 + j); i++ )
-                - if (i >= images.length) break;
-                  .col-md-4.gallery-image: img(src="#{images[i]}")
+                - if (i >= photos.length) break;
+                  .col-md-4.gallery-image: img(src="#{photos[i].image.url}")
   else
     h3.text-muted There are no image galleries yet.

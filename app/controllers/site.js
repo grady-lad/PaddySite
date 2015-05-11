@@ -1,6 +1,7 @@
 var fs            = require('fs');
 var nodemailer    = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
+var Photo 		  = require('../models/photos');
 
 
 exports.home = function (req, res) {
@@ -8,16 +9,12 @@ exports.home = function (req, res) {
 }
 
 exports.gallery = function (req, res) {
-	var images = [];
-	var dir = "../public"
-	var files = fs.readdirSync(__dirname + "/../public/uploads");
-    for(var i in files){ 
-        if (!files.hasOwnProperty(i)) continue;
-        var name = '/uploads/'+files[i];
-        console.log(name);
-        images.push(name);
-    }
-    	res.render("site/gallery", {images: images });
+	
+	Photo.find(function(err, photos) {
+		if (err) return console.error(err);
+		res.render("site/gallery", {photos: photos });
+	});
+    	
 }
 
 exports.contact = function(req, res) {

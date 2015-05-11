@@ -23,7 +23,7 @@ module.exports = function (app, passport) {
 	//=============================
 	app.use(bodyParser.urlencoded({ extended: true })); //configure app to use bodyParser()
 	app.use(bodyParser.json()); //this will let us get the data from a POST
-	app.use(multer({dest: __dirname + '../../app/public/uploads'}));
+	app.use(multer());
 	app.use(expressValidator());
 	//=====================
 	// Cloudinary Config
