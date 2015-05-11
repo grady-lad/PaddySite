@@ -4,12 +4,10 @@ var cloudinary = require('cloudinary');
 
 
 exports.displayPanel = function (req, res) {
-	console.log("hhehehe");
+	
 	Photo.find(function(err, photos) {
-		console.log("we herererererer");
 		if (err) return console.error(err);
 		res.render('imageuploader/uploader', {photos: photos });
-		
 	});	
 }
 
@@ -33,13 +31,15 @@ exports.upload = function (req, res) {
 }
 
 exports.remove = function (req, res) {	
-	//Photo.findOneAndRemove({ 'image.public_id' : 'http://res.cloudinary.com/dzx1ez426/image/upload/v1431355780/tmxkohwenbaaxxuiy2bf.jpg'  }, function(err, photo) {
-    //if(err){
-    	//console.log(err);
-    //}
-	//cloudinary.api.delete_resources([''],
-    //function(result){console.log(result)});    
-	//});
+	var public_id = req.body.imgId
+	Photo.findOneAndRemove({'image.public_id' : public_id  }
+		 ,function(err, photo) {
+			 if(err){
+				 console.log(err);
+			 }
+	    cloudinary.api.delete_resources([''],
+        function(result){console.log(result)});    
+	});
 	res.redirect('/imagepanel');
 }
 

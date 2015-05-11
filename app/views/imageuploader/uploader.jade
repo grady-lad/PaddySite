@@ -27,6 +27,7 @@ block content
                   .col-md-4.remove-image
                     img(src="#{photos[i].image.url}" height="200" width="200")
                     form(action="/removeImage", method="POST", enctype="multipart/form-data")
+                      input(type="hidden" value="#{photos[i].image.public_id}" name="imgId")
                       input.remove(type="submit" value="Remove")
                   
      else
