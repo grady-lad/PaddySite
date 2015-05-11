@@ -8,19 +8,27 @@ exports.displayPanel = function (req, res) {
 
 exports.upload = function (req, res) {	
 	
-	 var photo = new Photo(req.body);
-	  // Get temp file path 
-	  var imageFile = req.files.image.path;
-	  // Upload file to Cloudinary
-	  cloudinary.uploader.upload(imageFile)
-	  .then(function(image){
-	    console.log('** file uploaded to Cloudinary service');
+	if(!req.file){
+		console.log("well were in here");
+		res.render('imageuploader/uploader', {message: 'Please select a file'});
+	}
+	else{
+	
+	var photo = new Photo(req.body);
+	// Get temp file path 
+	var imageFile = req.files.image.path;
+	// Upload file to Cloudinary
+	cloudinary.uploader.upload(imageFile)
+	.then(function(image){
+		console.log('** file uploaded to Cloudinary service');
 	    photo.image = image;
 	    // Save photo with image metadata
 	    photo.save();
-	  })
-	  .finally(function(){
-		    res.render('imageuploader/uploader',{photo:photo,upload : photo.image});
-	  });
+	 })
+	 .finally(function(){
+		 res.render('imageuploader/uploader',{photo:photo,upload : photo.image});
+	 });
+	
+		 }
 }
 
