@@ -9,7 +9,7 @@ block content
   - }
   -   if (isObjectEmpty(message) == false)
     p #{message}
-  .col-sm-6
+  .col-md-4
     h1 control panel
     form(action="/imagepanel", method="POST", enctype="multipart/form-data")
       input(type="file", name='image')
@@ -17,7 +17,7 @@ block content
     form(action="/removeImage", method="POST", enctype="multipart/form-data")
       .form-group
         button.btn.btn-warning(type="submit", name='remove') remove Image
-   .col-sm-6
+   .col-md-8
      if photos.length
       - for (var j = 0; j < photos.length; j++)
           if (j == 0 || j % 3 == 0)

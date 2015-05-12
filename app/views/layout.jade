@@ -3,9 +3,32 @@ html
   head
     title WheresWallie - #{title}
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
     meta(name='viewport', content='width=device-width', initial-scale='1')
+    .row
+      .col-md-12
+        nav.navbar.navbar-default(role = "navigation")
+          .container-fluid
+            .navbar-header
+              button.navbar-toggle.collapsed(type = "button" data-toggle = "collapse" data-target = "#navbar-collapse")
+                span.sr-only Toggle Navigation
+                span.icon-bar
+                span.icon-bar
+                  span.icon-bar
+              a(href = "/")
+                h1.navbar-brand PADDHUIY
+                h1.navbar-brand ILLUSTRATION
+            .collapse.navbar-collapse
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a(href="/gallery") ILLUSTRATION
+                li
+                  a(href="/about") ABOUT
+                li
+                  a(href="/blog") BLOG
+                li
+                  a(href="/contact") CONTACT
    body
      .container
       #wrapper

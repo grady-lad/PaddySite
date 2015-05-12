@@ -4,7 +4,7 @@ var cloudinary = require('cloudinary');
 
 
 exports.displayPanel = function (req, res) {
-	
+	isLoggedIn(req, res);
 	Photo.find(function(err, photos) {
 		if (err) return console.error(err);
 		res.render('imageuploader/uploader', {photos: photos });
@@ -41,6 +41,15 @@ exports.remove = function (req, res) {
         function(result){console.log(result)});    
 	});
 	res.redirect('/imagepanel');
+}
+
+function isLoggedIn(req, res) {
+    // if user is authenticated in the session, carry on 
+    if (!req.isAuthenticated()){
+    	// if they aren't redirect them to the home page
+    	res.redirect('/');
+    }
+    
 }
 
 
