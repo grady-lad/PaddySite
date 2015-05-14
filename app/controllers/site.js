@@ -8,6 +8,10 @@ exports.home = function (req, res) {
   res.render("site/home");
 }
 
+exports.about = function (req, res) {
+  res.render("site/about");
+}
+
 exports.gallery = function (req, res) {
 	
 	Photo.find(function(err, photos) {

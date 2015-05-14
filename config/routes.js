@@ -15,6 +15,7 @@ module.exports = function (app, passport) {
   app.get("/gallery", site.gallery);
   app.get("/contact", site.contact);
   app.post("/contact", site.sendQuery);
+  app.get("/about", site.about);
   //========================
   // 		User Routes    
   //========================

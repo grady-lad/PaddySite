@@ -418,20 +418,9 @@ h5 {
   width: 200px;
   margin-left: 3%;
 }
-
-.remove-image:hover img{
-    opacity:0.5;
+.about-text {
+  font-family: apple_regular;
 }
-
-.remove-image:hover input {
-    display: block;
-}
-.remove-image input {
-    position:absolute;
-    display:none;
-}
-
-.remove-image input.remove {
-    top:50%;
-    left:50%;
+highlight {
+  color: #ff3c77;
 }
