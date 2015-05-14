@@ -6,13 +6,15 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
     meta(name='viewport', content='width=device-width', initial-scale='1')
     .row
       .col-md-12
         nav.navbar.navbar-default(role = "navigation")
           .container-fluid
             .navbar-header
-              button.navbar-toggle.collapsed(type = "button" data-toggle = "collapse" data-target = "#navbar-collapse")
+              button.navbar-toggle.collapsed(type = "button" data-toggle = "collapse" data-target = "#navbar-collapse-eg")
                 span.sr-only Toggle Navigation
                 span.icon-bar
                 span.icon-bar
@@ -20,7 +22,7 @@ html
               a(href = "/")
                 h1.navbar-brand PADDHUIY
                 h1.navbar-brand ILLUSTRATION
-            .collapse.navbar-collapse
+            .collapse.navbar-collapse#navbar-collapse-eg
               ul.nav.navbar-nav.navbar-right
                 li
                   a(href="/gallery") ILLUSTRATION
