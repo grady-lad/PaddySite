@@ -389,10 +389,10 @@ h5 {
 #submit_button {
   margin-top: 10px;
 }
-@media (min-width: 600px) {
+@media (min-width: 790px) {
   #suggestion,
   #email {
-    width: 150%;
+    width: 200%;
   }
 }
 /* general page layouts */
@@ -422,5 +422,8 @@ h5 {
   font-family: apple_regular;
 }
 highlight {
+  color: #ff3c77;
+}
+highlight a {
   color: #ff3c77;
 }

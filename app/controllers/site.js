@@ -12,6 +12,10 @@ exports.about = function (req, res) {
   res.render("site/about");
 }
 
+exports.blog = function (req, res) {
+  res.render("site/blog");
+}
+
 exports.gallery = function (req, res) {
 	
 	Photo.find(function(err, photos) {

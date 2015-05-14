@@ -7,6 +7,6 @@ block content
             .row
               - for (var i = j; i < (3 + j); i++ )
                 - if (i >= photos.length) break;
-                  .col-md-4.gallery-image: img(src="#{photos[i].image.url}" height="300" width="280")
+                  .col-md-4.gallery-image: img.img-responsive(src="#{photos[i].image.url}" height="300" width="280")
   else
     h3.text-muted There are no image galleries yet.
