@@ -421,9 +421,17 @@ h5 {
 .about-text {
   font-family: apple_regular;
 }
+.nav-text {
+  font-family: Super-Effective;
+  color: #ff3c77;
+  font-size: 22px;
+}
 highlight {
   color: #ff3c77;
 }
 highlight a {
   color: #ff3c77;
+}
+.brand-image {
+  height: 80px;
 }

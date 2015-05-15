@@ -3,6 +3,7 @@ html
   head
     title WheresWallie - #{title}
     link(rel='stylesheet', href='/custom-fonts/apple/stylesheet.css')
+    link(rel='stylesheet', href='/custom-fonts/super-effective/stylesheet.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
@@ -19,19 +20,18 @@ html
                 span.icon-bar
                 span.icon-bar
                   span.icon-bar
-              a(href = "/")
-                h1.navbar-brand PADDHUIY
-                h1.navbar-brand ILLUSTRATION
+              a.navbar-brand(href = "/")
+                img.brand-image(src= "images/Logo1.png")
             .collapse.navbar-collapse#navbar-collapse-eg
               ul.nav.navbar-nav.navbar-right
                 li
-                  a(href="/gallery") ILLUSTRATION
+                  a.nav-text(href="/gallery") ILLUSTRATION
                 li
-                  a(href="/about") ABOUT
+                  a.nav-text(href="/about") ABOUT
                 li
-                  a(href="/blog") BLOG
+                  a.nav-text(href="/blog") BLOG
                 li
-                  a(href="/contact") CONTACT
+                  a.nav-text(href="/contact") CONTACT
    body
      .container
       #wrapper
