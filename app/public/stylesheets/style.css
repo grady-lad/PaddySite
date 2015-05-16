@@ -186,193 +186,13 @@ th {
 body {
   font-family: "Arial" !important;
 }
-#switch-content p,
-#switch-content a,
-#switch-content li {
-  line-height: 1.4em;
-  font-size: 12pt;
-}
-body h1,
-h2,
-h3,
-h4,
-h5 {
-  margin-top: 0;
-  margin-bottom: 5px !important;
-}
-.wheresbold {
-  font-weight: 900;
-  font-size: 20pt;
-}
-.wheres-bold-small {
-  font-weight: 900;
-  font-size: 13pt;
-}
 #wrapper {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 @media (max-width: 320px) {
   #wrapper {
     margin-top: 40%;
   }
-}
-/* gif-part-*.jade */
-#frame1,
-#frame2,
-#frame3 {
-  display: none;
-}
-#frame1,
-#frame3 {
-  margin-top: 60px;
-}
-#frame2 {
-  margin-top: 30px;
-}
-/* introduction.jade */
-@media (min-width: 1024px) {
-  #introduction p {
-    width: 430px;
-  }
-}
-#introduction p {
-  margin-top: 35%;
-  line-height: 1.4em;
-  font-size: 16pt;
-}
-/* about-us.jade */
-#about-wrapper {
-  margin-top: 5%;
-}
-#mugshots div,
-#mugshots div h3,
-#mugshots div p {
-  position: absolute;
-}
-#luke {
-  left: 200px;
-}
-#luke h3 {
-  font-size: 12pt;
-  width: 140px;
-  left: 180px;
-}
-#paddy-is-special {
-  top: 100px;
-}
-#paddy-is-special h3 {
-  font-size: 12pt;
-  top: -8px;
-  right: 200px;
-}
-#paddy-is-special p {
-  font-size: 10pt;
-  width: 200px;
-  top: 29px;
-  right: 168px;
-}
-#martin {
-  top: 200px;
-  left: 200px;
-}
-#martin h3 {
-  font-size: 12pt;
-  width: 200px;
-  top: 150px;
-  left: 180px;
-}
-@media (min-width: 768px) {
-  #dotted-bracket {
-    right: 30px;
-  }
-}
-@media (min-width: 1280px) {
-  #dotted-bracket {
-    right: 115px;
-  }
-  #about-text {
-    right: 100px;
-  }
-}
-@media (min-width: 1024px) {
-  #about-text #text {
-    width: 320px;
-    position: relative;
-    top: 60px;
-    right: 70px;
-  }
-}
-@media (max-width: 768px) {
-  #about-text #text {
-    right: 0 !important;
-  }
-}
-#about-text #text a {
-  color: #222;
-  text-decoration: none;
-  font-size: 13pt;
-  border-bottom: dotted 0.5px #222;
-}
-#about-text #text a:hover {
-  border-bottom-color: #020405;
-}
-#about-text #text h2 {
-  margin: 0;
-  margin-bottom: 5px;
-}
-#dotted-bracket {
-  top: 125px;
-}
-#nav {
-  margin-left: 40%;
-}
-#about-us-responsive div h3,
-#about-us-responsive div img {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* fixed menu */
-#fixed-xs-menu {
-  width: 172px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#fixed-xs-menu {
-  z-index: 10;
-}
-#fixed-nav a,
-#fixed-xs-menu a {
-  margin-left: 8px;
-}
-#fixed-nav {
-  z-index: 10;
-  width: 180px;
-  position: absolute;
-  left: 10px;
-  top: 165px;
-  right: 0;
-}
-/* fixed logo */
-#fixed-logo {
-  z-index: -1;
-  width: 160px;
-  position: absolute;
-  left: 15px;
-  top: 10px;
-  right: 0;
-}
-#fixed-logo img {
-  max-height: 160px;
-  max-width: 160px;
-}
-#xs-logo img {
-  z-index: -1;
-  margin-top: 30px;
-  max-height: 130px;
-  margin-left: auto;
-  max-width: 130px;
-  margin-right: auto;
 }
 /* submission-form.jade */
 #feedback {
@@ -395,14 +215,6 @@ h5 {
     width: 200%;
   }
 }
-/* general page layouts */
-#why-wrapper,
-#idea-wrapper,
-#problems-wrapper,
-#help-wrapper,
-#form-wrapper {
-  margin-top: 5%;
-}
 #errorMessage {
   z-index: -10;
   color: #e81518;
@@ -424,7 +236,7 @@ h5 {
 .nav-text {
   font-family: Super-Effective;
   color: #ff3c77;
-  font-size: 22px;
+  font-size: 28px;
 }
 highlight {
   color: #ff3c77;
@@ -432,6 +244,9 @@ highlight {
 highlight a {
   color: #ff3c77;
 }
-.brand-image {
-  height: 80px;
+.logo_and_navbar {
+  margin-top: 85px;
+}
+.nav-logo {
+  margin-top: -15px !important;
 }

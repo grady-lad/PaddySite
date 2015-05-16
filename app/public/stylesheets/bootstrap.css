@@ -4068,8 +4068,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
+  min-height: s0px;
+  margin-bottom: 10px;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4078,7 +4078,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-header {
-    float: left;
+    
   }
 }
 .navbar-collapse {
@@ -4175,7 +4175,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  height: 50px;
+  height: 80px;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
@@ -4229,6 +4229,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+  padding-left: 40px
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
