@@ -250,3 +250,9 @@ highlight a {
 .nav-logo {
   margin-top: -15px !important;
 }
+.footer {
+  padding-top: 100px;
+}
+.footer p {
+  float: right;
+}
