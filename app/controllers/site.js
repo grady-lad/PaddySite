@@ -25,6 +25,17 @@ exports.gallery = function (req, res) {
     	
 }
 
+exports.photo = function (req, res){
+	
+	Photo.findOne("image", {etag: req.query.id}, function(err, photos){
+		if (err) return console.error(err);
+		console.log("our photo is");
+		console.log(photos);
+		res.render("site/photo", {photos: photos});
+		});
+}
+
+
 exports.contact = function(req, res) {
 	res.render("site/contact" , {message: '', errors: {} });
 
