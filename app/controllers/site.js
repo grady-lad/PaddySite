@@ -21,18 +21,20 @@ exports.gallery = function (req, res) {
 	Photo.find(function(err, photos) {
 		if (err) return console.error(err);
 		res.render("site/gallery", {photos: photos });
+		console.log(photos);
 	});
     	
 }
 
 exports.photo = function (req, res){
-	
-	Photo.findOne("image", {etag: req.query.id}, function(err, photos){
+	Photo.findOne({'image.etag': req.query.id} ,function(err, photos){
 		if (err) return console.error(err);
-		console.log("our photo is");
-		console.log(photos);
-		res.render("site/photo", {photos: photos});
-		});
+		if(photos){
+			console.log("our photo is");
+			console.log(photos);
+			res.render("site/photo", {photos: photos});
+		}
+	});
 }
 
 
