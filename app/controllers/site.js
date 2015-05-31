@@ -27,14 +27,23 @@ exports.gallery = function (req, res) {
 }
 
 exports.photo = function (req, res){
-	Photo.findOne({'image.etag': req.query.id} ,function(err, photos){
-		if (err) return console.error(err);
-		if(photos){
-			console.log("our photo is");
-			console.log(photos);
-			res.render("site/photo", {photos: photos});
-		}
+	
+	var currentImageDate = req.query.id;
+	var images = [];
+	console.log(currentImageDate);
+	Photo.find({}).sort({'image.created_at' : -1}).lean().exec(function(err, photos){
+			for(var i =0; i < photos.length; i++){
+				if(currentImageDate == photos[i].image.created_at){
+					console.log("Im in love the coco");
+					images.push(photos[i - 1]);
+					images.push(photos[i]);
+					images.push(photos[i + 1]);
+					console.log(images);
+					break;
+				}
+			}		
 	});
+	res.render("site/photo");
 }
 
 
