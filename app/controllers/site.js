@@ -18,32 +18,35 @@ exports.blog = function (req, res) {
 
 exports.gallery = function (req, res) {
 	
-	Photo.find(function(err, photos) {
+	Photo.find({}).sort({'image.created_at' : 1}).lean().exec(function(err, photos) {
 		if (err) return console.error(err);
 		res.render("site/gallery", {photos: photos });
-		console.log(photos);
 	});
     	
 }
 
 exports.photo = function (req, res){
 	
-	var currentImageDate = req.query.id;
+	var currentImageDate = "";
+	currentImageDate = req.query.id;
+	console.log("Our current Image date is " + currentImageDate);
 	var images = [];
-	console.log(currentImageDate);
-	Photo.find({}).sort({'image.created_at' : -1}).lean().exec(function(err, photos){
-			for(var i =0; i < photos.length; i++){
-				if(currentImageDate == photos[i].image.created_at){
-					console.log("Im in love the coco");
-					images.push(photos[i - 1]);
-					images.push(photos[i]);
-					images.push(photos[i + 1]);
-					console.log(images);
-					break;
-				}
-			}		
+	Photo.find({}).sort({'image.created_at' : 1}).exec(function(err, photos){
+		for(var i =0; i < photos.length; i++){
+			console.log("hey hey");
+			var loopImage = photos[i];
+			if(currentImageDate == loopImage.image.created_at){
+				console.log("Im in love with the coco");
+				images.push(photos[i - 1]);
+				images.push(photos[i]);
+				images.push(photos[i + 1]);
+				res.render("site/photo" , {photos: images});
+			}
+			
+		}
+			
 	});
-	res.render("site/photo");
+	
 }
 
 

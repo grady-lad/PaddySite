@@ -4,7 +4,7 @@ var cloudinary = require('cloudinary');
 
 
 exports.displayPanel = function (req, res) {
-	isLoggedIn(req, res);
+	//isLoggedIn(req, res);
 	Photo.find(function(err, photos) {
 		if (err) return console.error(err);
 		res.render('imageuploader/uploader', {photos: photos });
@@ -12,20 +12,24 @@ exports.displayPanel = function (req, res) {
 }
 
 exports.upload = function (req, res) {	
-
+	console.log("we here?");
 	var photo = new Photo(req.body);
 	// Get temp file path 
+	console.log("created photo variable but what it is for?");
 	var imageFile = req.files.image.path;
+	console.log("created the image file");
 	// Upload file to Cloudinary
 	cloudinary.uploader.upload(imageFile)
 	.then(function(image){
 		console.log('** file uploaded to Cloudinary service');
 	    photo.image = image;
 	    // Save photo with image metadata
+	    console.log("saving");
 	    photo.save();
 	 })
 	 .finally(function(){
 		 //res.render('imageuploader/uploader');
+		 console.log("rendering");
 		 res.redirect('/imagepanel');
 	 });	
 }
