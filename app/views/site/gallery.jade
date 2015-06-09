@@ -6,7 +6,7 @@ block content
             .row
               - for (var i = j; i < (3 + j); i++ )
                 - if (i >= photos.length) break;
-                  .col-md-4.gallery-image: a(href="/photo?id=#{photos[i].image.created_at}") 
+                  .col-md-4.gallery-image: a.clickable(href="/photo?id=#{photos[i].image.created_at}") 
                      img.img-responsive(src="#{photos[i].image.url}" height="300" width="280")
   else
     h3.text-muted There are no image galleries yet.

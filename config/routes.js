@@ -12,7 +12,8 @@ module.exports = function (app, passport) {
   // Site Routes
   // =======================
   app.get("/" , site.home);
-  app.get("/gallery", site.gallery);
+  app.get("/gallery", site.illustration);
+  app.get("/api/gallery", site.gallery);
   app.get("/contact", site.contact);
   app.post("/contact", site.sendQuery);
   app.get("/about", site.about);

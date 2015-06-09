@@ -20,10 +20,16 @@ exports.gallery = function (req, res) {
 	
 	Photo.find({}).sort({'image.created_at' : 1}).lean().exec(function(err, photos) {
 		if (err) return console.error(err);
-		res.render("site/gallery", {photos: photos });
+		res.json(photos);
 	});
     	
 }
+
+exports.illustration = function (req, res) {
+	
+	res.render("site/illustration");
+}
+
 
 exports.photo = function (req, res){
 	

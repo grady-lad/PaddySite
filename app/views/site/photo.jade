@@ -2,11 +2,12 @@ extends ../layout
 block content
   h1 YOLO YOLO
   if photos
-    img.img-responsive(src="#{photos[1].image.url}" height="300" width="280")
-    if(photos[0] != undefined)
-      a(href="/photo?id=#{photos[0].image.created_at}") Previous
-    if(photos[2] != undefined)
-      a(href="/photo?id=#{photos[2].image.created_at}") Next
+    #singlePhoto
+      img.img-responsive(src="#{photos[1].image.url}" height="300" width="280")
+      if(photos[0] != undefined)
+        a(href="/photo?id=#{photos[0].image.created_at}") Previous
+      if(photos[2] != undefined)
+        a(href="/photo?id=#{photos[2].image.created_at}") Next
      
       
       
