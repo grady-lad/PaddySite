@@ -30,6 +30,12 @@ exports.illustration = function (req, res) {
 	res.render("site/illustration");
 }
 
+exports.singleIllustration = function (req, res){
+	
+	res.render("site/photo");
+}
+
+
 
 exports.photo = function (req, res){
 	

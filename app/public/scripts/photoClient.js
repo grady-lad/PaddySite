@@ -28,7 +28,7 @@ var photoView = Backbone.View.extend({
 		var compiled = Handlebars.compile(template);
 		//Create the col div and append the image and link
 		var col = $('<div class = "col-md-4 gallery-image"></div>');
-		var aRef = $('<a href="photo/?id=' + this.model.image.created_at + '"/>');
+		var aRef = $('<a href="photo?id=' + this.model.image.created_at + '"/>');
 		aRef.prepend('<img class="img-responsive" height="300" width="300" src ="' + this.model.image.url + '"/>');
 		col.prepend(aRef);
 		return col;
@@ -82,12 +82,18 @@ var photoRouter = Backbone.Router.extend({
 	//Organising what methods to use when a certain url is hit
 	routes: {
 		// URL: Method
-		"gallery": "illustrationGallery"
+		"gallery": "illustrationGallery",
+		"photo:id": "singleIllustration"
 	},
 	illustrationGallery: function(){
 		var collection = new photoCollection();
 	    collection.fetch({reset: true});
 	    var view = new photoCollectionView({collection: collection});
 	    $(".app").html(view.render().el); 
+	},
+	
+	singleIllustration: function(id){
+		console.log("heeey");
 	}
+	
 });
