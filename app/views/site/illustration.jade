@@ -1,4 +1,9 @@
 extends ../layout
 block content
   div.app
-  script(id = "illustrationTemplate", type = "text/template")
+  script(id = "illustrationTemplate", type = "text/x-handlebars")
+    if photos
+    <div class = "col-md-4"><a href="photo?id={{image.created_at}}" class="name"> <img class ="img-responsive" src = "{{image.url}}" height = "300" width = "300"/></a></div>
+      
+    
+  
