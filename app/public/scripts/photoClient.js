@@ -3,7 +3,7 @@ var photo = Backbone.Model.extend({
 	//All photos have an id attribute coming from mongo 
 	//But do I really need this here? Do I need to define the Image item
 	// and its attributes?
-	idAtrribute: "id",
+	idAtrribute: "id"
 });
 
 //This collection is used to return all of our photos
@@ -34,6 +34,9 @@ var singlePhotoCollection = Backbone.Collection.extend({
 // contained in column 'col-md-4' containing a href and img.
 var photoView = Backbone.View.extend({
 	
+	events: {
+    "click .singleIllLink": "singleIllustrationView"
+  	},
 	render: function(){
     	var template = $("#illustrationTemplate").html();
     	var compiled = Handlebars.compile(template);
@@ -41,7 +44,15 @@ var photoView = Backbone.View.extend({
     	var html = compiled(this.model.attributes);
     	this.$el.html(html);
     	return this;
+	},
+	//When a model is clicked we to navigate to '/photo?id='
+	// and let our router do the rest :)
+	singleIllustrationView: function(e){
+		e.preventDefault();
+		var id = this.model.get("image").created_at;
+		router.navigate("/photo?id=" + id, {trigger: true});
 	}
+
  });
 //For the illustration Gallery we want to create a row for every 3 images created
 // I.E every row only contains 3 images.
