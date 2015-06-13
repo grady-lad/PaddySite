@@ -9,17 +9,20 @@ var auth = require('./middlewares/authorization');
 module.exports = function (app, passport) {
 	
   //========================
-  // Site Routes
+  // Site Frontend Routes
   // =======================
   app.get("/" , site.home);
   app.get("/gallery", site.illustration);
-  app.get("/api/gallery", site.gallery);
   app.get("/contact", site.contact);
   app.post("/contact", site.sendQuery);
   app.get("/about", site.about);
   app.get("/blog", site.blog);
-  //app.get("/photo:id", site.photo);
-  app.get("/photo", site.photo);
+  app.get("/photo", site.singleIllustration);
+  //========================
+  //	 Site API Routes
+  //========================
+  app.get("/api/gallery", site.gallery);
+  app.get("/api/photo", site.photo);
   //========================
   // 		User Routes    
   //========================

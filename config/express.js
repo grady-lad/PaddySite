@@ -7,7 +7,7 @@ var cloudinary 	 	 = require('cloudinary');
 var multer   	     = require('multer');
 var methodOverride   = require('method-override');
 var expressValidator = require('express-validator');
-
+var path 			 = require('path');
 /**
  * expose for now
  */
@@ -41,7 +41,7 @@ module.exports = function (app, passport) {
 	//=======================
 	app.set("views", __dirname + "/../app/views");
 	app.set("view engine", "jade");
-	app.use(express.static(__dirname + '/../app/public/'));
+	app.use(express.static(path.join(__dirname , '/../app/public/')));
 	
 	//=====================
 	// Passport setup
