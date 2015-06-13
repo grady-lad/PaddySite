@@ -76,6 +76,32 @@ var photoCollectionView = Backbone.View.extend({
  	}
 });
 
+var singleIllustrationView = Backbone.View.extend({
+	initialize: function(){
+	//When the collection reset function is called call on the render method
+	this.listenTo(this.collection, "reset", this.render);
+	},
+	
+	render: function(){
+		this.$el.html("");
+		
+		//Check if the 1st item in the collection is empty
+		if(JSON.stringify(this.collection.at(0)).length != 2){
+			var prevImage = this.collection.at(0).attributes.image.created_at;
+			
+		}
+		
+		var currentImage = this.collection.at(1);
+		//Check if the last item in the collection is empty
+		if(JSON.stringify(this.collection.at(2)).length != 2){
+			var nextImage = this.collection.at(2).attributes.image.created_at;
+			
+		}
+	}
+
+	
+});
+
 //Used to manage our frontend Routes 
 var photoRouter = Backbone.Router.extend({
 	routes: {
@@ -90,8 +116,11 @@ var photoRouter = Backbone.Router.extend({
 		var view = new photoCollectionView({collection: collection});
 		$(".app").html(view.render().el);   
 	},
+	//Used to display the single illustration @param: id = the single illustration id
+	// of the illustration we would like to display.
 	singleIllustration: function(id) {
-		var singleCollection = new singlePhotoCollection([], {id: id});
-		singleCollection.fetch({reset: true});
+		var collection = new singlePhotoCollection([], {id: id});
+		collection.fetch({reset: true});
+		var view = new singleIllustrationView({collection: collection});
 	}
 });

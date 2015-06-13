@@ -18,7 +18,7 @@ exports.blog = function (req, res) {
 
 exports.gallery = function (req, res) {
 	
-	Photo.find({}).sort({'image.created_at' : 1}).lean().exec(function(err, photos) {
+	Photo.find({}).sort({'image.created_at' : 1}).exec(function(err, photos) {
 		if (err) return console.error(err);
 		res.json(photos);
 	});
@@ -31,7 +31,6 @@ exports.illustration = function (req, res) {
 }
 
 exports.singleIllustration = function (req, res){
-	console.log("params are " + req.params.id);
 	res.render("site/photo");
 }
 
@@ -52,13 +51,10 @@ exports.photo = function (req, res){
 				images.push(photos[i - 1]);
 				images.push(photos[i]);
 				images.push(photos[i + 1]);
-				res.json(photos);
-			}
-			
-		}
-			
-	});
-	
+				res.json(images);
+			}			
+		}			
+	});	
 }
 
 
