@@ -35,7 +35,7 @@ var singlePhotoCollection = Backbone.Collection.extend({
 var photoView = Backbone.View.extend({
 	
 	events: {
-    "click .singleIllLink": "singleIllustrationView"
+    "click .singleIllLink": "singleIllView"
   	},
 	render: function(){
     	var template = $("#illustrationTemplate").html();
@@ -47,7 +47,7 @@ var photoView = Backbone.View.extend({
 	},
 	//When a model is clicked we to navigate to '/photo?id='
 	// and let our router do the rest :)
-	singleIllustrationView: function(e){
+	singleIllView: function(e){
 		e.preventDefault();
 		var id = this.model.get("image").created_at;
 		router.navigate("/photo?id=" + id, {trigger: true});
@@ -88,29 +88,53 @@ var photoCollectionView = Backbone.View.extend({
 });
 
 var singleIllustrationView = Backbone.View.extend({
+	events: {
+    "click .singleIllLink": "singleIllView"
+  	},
 	initialize: function(){
 	//When the collection reset function is called call on the render method
-	this.listenTo(this.collection, "reset", this.render);
+	this.listenTo(this.collection, "reset", this.createCol);
 	},
 	
-	render: function(){
-		this.$el.html("");
+	singleIllView: function(e){
+		e.preventDefault();
+		var id = this.model.get("image").created_at;
+		router.navigate("/photo?id=" + id, {trigger: true});
+	},
+	
+	createCol: function(){
+		var col = $('<div class="col-md-12"></div>');
 		
+		var currentImageUrl = this.collection.at(1).attributes.image.url;
+		var singleIllImage = $('<img class ="img-responsive">');
+		singleIllImage.attr('src' , currentImageUrl);
+		col.append(singleIllImage);
 		//Check if the 1st item in the collection is empty
 		if(JSON.stringify(this.collection.at(0)).length != 2){
-			var prevImage = this.collection.at(0).attributes.image.created_at;
+			var prevImageHref = this.collection.at(0).attributes.image.created_at;
+			var prevHref = $('<a class="singleIllLink">Prev</a>');
+			prevHref.attr('href' , '/photo?id=' + prevImageHref);
+			col.append(prevHref);
+			
+		}
+		//Check if the last item in the collection is empty
+		if(JSON.stringify(this.collection.at(2)).length != 2){
+			var nextImageHref = this.collection.at(2).attributes.image.created_at;
+			var nextHref = $('<a class="singleIllLink">Next</a>');
+			nextHref.attr('href' , '/photo?id=' + nextImageHref);
+			col.append(nextHref);
 			
 		}
 		
-		var currentImage = this.collection.at(1);
-		//Check if the last item in the collection is empty
-		if(JSON.stringify(this.collection.at(2)).length != 2){
-			var nextImage = this.collection.at(2).attributes.image.created_at;
-			
-		}
+		this.$el.append(col);
+	}, 
+	
+	render: function(){
+		console.log("we are in the render");
+		 this.$el.html("");
+		 return this;
 	}
 
-	
 });
 
 //Used to manage our frontend Routes 
@@ -130,8 +154,10 @@ var photoRouter = Backbone.Router.extend({
 	//Used to display the single illustration @param: id = the single illustration id
 	// of the illustration we would like to display.
 	singleIllustration: function(id) {
+		//hits Our Api
 		var collection = new singlePhotoCollection([], {id: id});
 		collection.fetch({reset: true});
 		var view = new singleIllustrationView({collection: collection});
+		$(".app").html(view.render().el);
 	}
 });
