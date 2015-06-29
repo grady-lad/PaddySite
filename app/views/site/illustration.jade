@@ -1,11 +1,24 @@
 extends ../layout
 block content
+  div#intialContent
+    = photos
   div.app
   script(id = "illustrationTemplate", type = "text/x-handlebars")
     if photos
-    <div class = "col-md-4"><a href="photo?id={{image.created_at}}" class="singleIllLink"> <img class ="img-responsive" src = "{{image.url}}" height = "300" width = "300"/></a></div>
+    <div class = "col-md-4">
+    <a href="photo?id={{image.created_at}}" class="singleIllLink">
+    <img class ="img-responsive" src = "{{image.url}}" height = "300" width = "300"/>
+    </a>
+    </div>
     
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
-      
-    
+    <div class = "col-md-12">
+    <img class="img-responsive" src="{{image.url}}"</img>
+    {{#if prevUrl}}
+    <a class="singleIllLink" href="photo?id={{prevUrl}}">Previous </a>
+    {{/if}}
+    {{#if nextUrl}}
+    <a class= "singleIllLink" href="photo?id={{nextUrl}}">Next</a>
+    {{/if}}
+    </div>   
   

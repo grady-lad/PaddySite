@@ -26,8 +26,12 @@ exports.gallery = function (req, res) {
 }
 
 exports.illustration = function (req, res) {
-	
-	res.render("site/illustration");
+	Photo.find({}).sort({'image.created_at' : 1}).exec(function(err, photos) {
+		if (err) return console.error(err);
+		//res.json(photos);
+		var data = JSON.stringify(photos);
+		res.render("site/illustration" , {photos: data});
+	})
 }
 
 exports.singleIllustration = function (req, res){
