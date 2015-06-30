@@ -22,6 +22,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		_renderView: function(view) {
 			$(".app").html(view.render().el);
+			$(".img-fade").animate({ opacity: 1,}, 2000)
 		},
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 

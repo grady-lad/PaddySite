@@ -7,18 +7,18 @@ block content
     if photos
     <div class = "col-md-4">
     <a href="#" class="singleIllLink">
-    <img class ="img-responsive" src = "{{image.url}}" height = "300" width = "300"/>
+    <img class ="img-responsive img-fade" src = "{{image.url}}" height = "300" width = "300"/>
     </a>
     </div>
     
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
     <div class = "col-md-12">
-    <img class="img-responsive" src="{{image.url}}"</img>
+    <img class="img-responsive img-fade img-centre" height ="750" width="600" src="{{image.url}}"</img>
     {{#if prevUrl}}
-    <a class="prevIll" href="#">Previous </a>
+    <a class="prevIll centre-links" href="#">Previous</a>
     {{/if}}
     {{#if nextUrl}}
-    <a class= "nextIll" href="#">Next</a>
+    <a class= "nextIll centre-links" href="#">     Next</a>
     {{/if}}
     </div>   
   
