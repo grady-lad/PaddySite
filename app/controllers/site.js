@@ -26,7 +26,7 @@ exports.gallery = function (req, res) {
 }
 
 exports.illustration = function (req, res) {
-	Photo.find({}).sort({'image.created_at' : 1}).exec(function(err, photos) {
+	Photo.find({}).sort({'_id' : 1}).exec(function(err, photos) {
 		if (err) return console.error(err);
 		//res.json(photos);
 		var data = JSON.stringify(photos);
