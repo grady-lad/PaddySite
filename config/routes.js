@@ -22,7 +22,7 @@ module.exports = function (app, passport) {
   //	 Site API Routes
   //========================
   app.get("/api/gallery", site.gallery);
-  app.get("/api/photo", site.photo);
+  app.get("/photo", site.illustration);
   //========================
   // 		User Routes    
   //========================
