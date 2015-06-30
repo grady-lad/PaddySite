@@ -21,7 +21,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 			//Set up the image div 'col-md-4' located in illustrationTemplate
 	 			var photoV = new photoView({model: photo});
 	 			//add the photo div within our row
-	 			row.prepend(photoV.render().el);
+	 			row.append(photoV.render().el);
 	 			//append the row
 	 			this.$el.append(row);
 	 			counter++;
