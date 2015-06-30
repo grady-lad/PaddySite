@@ -4,7 +4,8 @@ require.config({
     jquery: 'lib/jquery',
     backbone: 'lib/backbone',
     underscore: 'lib/underscore',
-    handlebars: 'lib/handlebars'
+    handlebars: 'lib/handlebars',
+    bootstrap: 'lib/bootstrap.min'
   },
   shim: {
     backbone: {
@@ -16,8 +17,11 @@ require.config({
     },
     handlebars: {
       exports: 'Handlebars'
+    },
+    bootstrap:{
+    	deps :['jquery']
     }
-  }
+  },
 });
 
-require(["init"]);
+require(["init", "jquery", "bootstrap"]);
