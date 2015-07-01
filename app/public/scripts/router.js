@@ -17,7 +17,9 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    	console.log("initalize calls setupcollection");
 			if(this.collection) return;
 			var data = $("#intialContent").html();
+			if(data != undefined){
 			this.collection = new photoCollection(JSON.parse(data));
+			}
 		},
 		
 		_renderView: function(view) {
