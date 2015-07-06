@@ -5,7 +5,11 @@ require.config({
     backbone: 'lib/backbone',
     underscore: 'lib/underscore',
     handlebars: 'lib/handlebars',
-    bootstrap: 'lib/bootstrap.min'
+    bootstrap: 'lib/bootstrap.min',
+    jqueryUI: 'lib/jquery.ui.widget',
+    jqueryIframe: 'lib/jquery.iframe-transport',
+    jqueryFileupload: 'lib/jquery.fileupload',
+    jqueryCloudinary: 'lib/jquery.cloudinary'
   },
   shim: {
     backbone: {
@@ -20,8 +24,11 @@ require.config({
     },
     bootstrap:{
     	deps :['jquery']
+    },
+    jqueryCloudinary: {
+    	exports: 'cloudinary'
     }
   },
 });
 
-require(["init", "jquery", "bootstrap"]);
+require(["init", "jquery", "bootstrap", "jqueryCloudinary"]);

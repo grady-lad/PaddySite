@@ -1,4 +1,4 @@
-extends ../layout
+extends ../uploaderLayout
 block content
   - function isObjectEmpty(obj){
   -     var name;
@@ -11,12 +11,12 @@ block content
     p #{message}
   .col-md-4
     h1 control panel
-    form(action="/imagepanel", method="POST", enctype="multipart/form-data")
-      input(type="file", name='image')
-      input(type="submit", value="Upload Image")
-    form(action="/removeImage", method="POST", enctype="multipart/form-data")
-      .form-group
-        button.btn.btn-warning(type="submit", name='remove') remove Image
+    form(action="/imagepanel", method="POST", enctype="multipart/form-data", Content-Type="application/json")
+      input.cloudinary-fileupload(type="file",
+       name='file' ,data-cloudinary-field='image', data-form-data='')
+      input.uploadbutton(type="submit", value="Upload Image")
+      span.status
+      .preview
    .col-md-8
      if photos.length
       - for (var j = 0; j < photos.length; j++)

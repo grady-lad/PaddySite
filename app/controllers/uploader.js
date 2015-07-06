@@ -2,36 +2,25 @@ var fs    = require('fs');
 var Photo  = require('../models/photos');
 var cloudinary = require('cloudinary');
 
-
 exports.displayPanel = function (req, res) {
 	//isLoggedIn(req, res);
+	var cloudinary_cors = "http://" + req.headers.host + "/cloudinary_cors.html";
 	Photo.find(function(err, photos) {
 		if (err) return console.error(err);
-		res.render('imageuploader/uploader', {photos: photos });
+		res.render('imageuploader/uploader', {photos: photos, cloudinary_cors:cloudinary_cors, cloudinary: cloudinary });
 	});	
 }
 
 exports.upload = function (req, res) {	
-	console.log("we here?");
-	var photo = new Photo(req.body);
-	// Get temp file path 
-	console.log("created photo variable but what it is for?");
-	var imageFile = req.files.image.path;
-	console.log("created the image file");
-	// Upload file to Cloudinary
-	cloudinary.uploader.upload(imageFile)
-	.then(function(image){
-		console.log('** file uploaded to Cloudinary service');
-	    photo.image = image;
-	    // Save photo with image metadata
-	    console.log("saving");
-	    photo.save();
-	 })
-	 .finally(function(){
-		 //res.render('imageuploader/uploader');
-		 console.log("rendering");
-		 res.redirect('/imagepanel');
-	 });	
+
+	var photo = new Photo();
+	var image = req.body.image;
+	photo.image = JSON.parse(image);
+	photo.save();
+	//res.render('imageuploader/uploader');
+	console.log("rendering");
+	res.redirect('/imagepanel');
+	 
 }
 
 exports.remove = function (req, res) {	
