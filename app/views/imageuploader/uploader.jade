@@ -9,6 +9,8 @@ block content
   - }
   -   if (isObjectEmpty(message) == false)
     p #{message}
+  #intialContent
+    = photos
   .col-md-4
     h1 control panel
     form(action="/imagepanel", method="POST", enctype="multipart/form-data", Content-Type="application/json")
@@ -17,18 +19,13 @@ block content
       input.uploadbutton(type="submit", value="Upload Image")
       span.status
       .preview
-   .col-md-8
-     if photos.length
-      - for (var j = 0; j < photos.length; j++)
-          if (j == 0 || j % 3 == 0)
-            .row
-              - for (var i = j; i < (3 + j); i++ )
-                - if (i >= photos.length) break;
-                  .col-md-4.remove-image
-                    img(src="#{photos[i].image.url}" height="200" width="200")
-                    form(action="/removeImage", method="POST", enctype="multipart/form-data")
-                      input(type="hidden" value="#{photos[i].image.public_id}" name="imgId")
-                      input.remove(type="submit" value="Remove")
-                  
-     else
-       h3.text-muted No images uploaded yet.
+    
+   .col-md-8.app
+       script(id = "illustrationTemplate", type = "text/x-handlebars")
+         <div class="col-md-4 remove-image">
+         <img class="img-responsive img-fade" src="{{image.url}}" height = "300" width="300"/>
+         <form action="/removeImage" method="POST" enctype="multipart/form-data">
+         <input type="hidden" value="image.public_id" name="imgId"/>
+         <input class="remove" type="submit" value="Remove"/>
+         </form>
+         </div>             

@@ -7,7 +7,8 @@ exports.displayPanel = function (req, res) {
 	var cloudinary_cors = "http://" + req.headers.host + "/cloudinary_cors.html";
 	Photo.find(function(err, photos) {
 		if (err) return console.error(err);
-		res.render('imageuploader/uploader', {photos: photos, cloudinary_cors:cloudinary_cors, cloudinary: cloudinary });
+		var data = JSON.stringify(photos);
+		res.render('imageuploader/uploader', {photos: data});
 	});	
 }
 

@@ -115,7 +115,8 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 				  });
 				   });
 			 });
-			 
+			 var view = new photoCollectionView({collection: this.collection});
+			 this._renderView(view);  
 		}
 
 	});
