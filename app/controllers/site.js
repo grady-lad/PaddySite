@@ -16,15 +16,6 @@ exports.blog = function (req, res) {
   res.render("site/blog");
 }
 
-exports.gallery = function (req, res) {
-	
-	Photo.find({}).sort({'image.created_at' : 1}).exec(function(err, photos) {
-		if (err) return console.error(err);
-		res.json(photos);
-	});
-    	
-}
-
 exports.illustration = function (req, res) {
 	Photo.find({}).sort({'_id' : 1}).exec(function(err, photos) {
 		if (err) return console.error(err);
@@ -34,38 +25,8 @@ exports.illustration = function (req, res) {
 	})
 }
 
-exports.singleIllustration = function (req, res){
-	res.render("site/photo");
-}
-
-
-
-exports.photo = function (req, res){
-	
-	var currentImageDate = "";
-	currentImageDate = req.query.id;
-	console.log("Our current Image date is " + currentImageDate);
-	var images = [];
-	Photo.find({}).sort({'image.created_at' : 1}).exec(function(err, photos){
-		for(var i =0; i < photos.length; i++){
-			console.log("hey hey");
-			var loopImage = photos[i];
-			if(currentImageDate == loopImage.image.created_at){
-				console.log("Im in love with the coco");
-				images.push(photos[i - 1]);
-				images.push(photos[i]);
-				images.push(photos[i + 1]);
-				res.json(images);
-			}			
-		}			
-	});	
-}
-
-
 exports.contact = function(req, res) {
 	res.render("site/contact" , {message: '', errors: {} });
-
-
 }
 
 exports.sendQuery = function(req, res){

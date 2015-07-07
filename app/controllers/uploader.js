@@ -26,6 +26,9 @@ exports.upload = function (req, res) {
 
 exports.remove = function (req, res) {	
 	var public_id = req.body.imgId
+	console.log("*************************");
+	console.log(req.body.imgId);
+	console.log("***************************");
 	Photo.findOneAndRemove({'image.public_id' : public_id  }
 		 ,function(err, photo) {
 			 if(err){

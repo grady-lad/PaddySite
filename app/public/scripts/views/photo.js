@@ -2,7 +2,8 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 	var photoView = Backbone.View.extend({
 		
 		events: {
-		"click .singleIllLink": "singleIllView"
+		"click .singleIllLink": "singleIllView",
+	    "submit .remove": "removePhoto"
 		},
 		render: function(){
 			//console.log(this.model);
@@ -23,7 +24,14 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			//router.navigate("photo?id=" + id, {trigger: true});
 			var url = "photo?id=" + id;
 		    Events.trigger("router:navigate", url);
+		},
+		
+		removePhoto: function(e){
+			e.preventDefault();
+			console.log("yolo");
+			Events.trigger("roueter:navigate", "/removeImage");
 		}
+
 	});
 	return photoView;
 });
