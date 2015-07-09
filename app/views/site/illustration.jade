@@ -5,20 +5,24 @@ block content
   div.app
   script(id = "illustrationTemplate", type = "text/x-handlebars")
     if photos
-    <div class = "col-md-4">
+    <div class = "col-md-4 centerIll">
     <a href="#" class="singleIllLink">
-    <img class ="img-responsive img-fade" src = "{{image.url}}" height = "300" width = "300"/>
+    <img class ="img-responsive img-fade multipleIll" src = "{{image.url}}"/>
     </a>
     </div>
     
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
     <div class = "col-md-12">
     <img class="img-responsive img-fade img-centre" height ="750" width="600" src="{{image.url}}"</img>
+    <div class="row">
+    <div class= "centre-links">
     {{#if prevUrl}}
-    <a class="prevIll centre-links" href="#">Previous</a>
+    <a class="prevIll" href="#">Previous /</a>
     {{/if}}
     {{#if nextUrl}}
-    <a class= "nextIll centre-links" href="#">     Next</a>
+    <a class= "nextIll text-center" href="#">Next</a>
     {{/if}}
+    </div>
+    </div>
     </div>   
   
