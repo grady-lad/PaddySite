@@ -269,6 +269,9 @@ highlight a {
   margin-top: 20px;
   text-align: center;
 }
+.cloudinary_fileupload {
+  color: transparent;
+}
 .illRow {
   margin-top: 20px;
 }
@@ -283,4 +286,10 @@ highlight a {
   width: auto;
   max-width: 300px;
   max-height: 300px;
+}
+.uploader-panel {
+  border: 4px solid #eee;
+}
+.uploader-panel .uploadbutton {
+  margin-top: 10px;
 }

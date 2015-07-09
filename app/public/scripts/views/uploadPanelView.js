@@ -31,8 +31,8 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
  				var preview = $(".preview").html('');
  				$.cloudinary.image(data.result.public_id, {
  					format: data.result.format,
- 					width: 50,
- 					height: 50,
+ 					width: 200,
+ 					height: 200,
  					crop: "fit"
  				}).appendTo(preview);
 
@@ -44,7 +44,7 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
  				data({
  					delete_token: data.result.delete_token
  				}).
- 				html('&times;').
+ 				html('remove').
  				appendTo(preview).
  				click(function(e) {
  					e.preventDefault();
