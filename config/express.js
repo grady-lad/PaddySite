@@ -42,12 +42,11 @@ module.exports = function (app, passport) {
 	app.set("views", __dirname + "/../app/views");
 	app.set("view engine", "jade");
 	app.use(express.static(path.join(__dirname , '/../app/public/')));
-	
 	//=====================
 	// Passport setup
 	//=====================
 	require('../config/passport')(passport);
-	app.use(session({ secret: 'ilovescotchscotchyscotchscotch',
+	app.use(session({ secret: process.env.SESSION_SECRET,
 					  resave: true,
 					  saveUninitialized: true
 	})); // session secret
