@@ -46,13 +46,3 @@ exports.remove = function (req, res) {
 	});
 	res.redirect('/imagepanel');
 }
-
-function isLoggedIn(req, res) {
-    // if user is authenticated in the session, carry on 
-    if (!req.isAuthenticated()){
-    	// if they aren't redirect them to the home page
-    	res.redirect('/');
-    }   
-}
-
-

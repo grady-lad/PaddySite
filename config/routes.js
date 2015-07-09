@@ -23,10 +23,9 @@ module.exports = function (app, passport) {
   //========================
   app.get("/login", users.login);
   app.get("/signup", users.signup);
-  app.get("/users/profile", users.needUser);
   app.get("/logout", users.logout); 
   app.post("/signup", passport.authenticate('local-signup', {
-      successRedirect : '/users/profile', // redirect to the secure profile section
+      successRedirect : '/imagepanel', // redirect to the secure profile section
       failureRedirect : '/signup', // redirect back to the signup page if there is an error
       failureFlash : true // allow flash messages
   }));
@@ -35,10 +34,19 @@ module.exports = function (app, passport) {
       failureRedirect : '/login', // redirect back to the signup page if there is an error
       failureFlash : true // allow flash messages
   }));
+  
+  //Authenticating user when using the image uploader
+  function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+  }
   //=====================
   // Control Panel Routes
   //======================
-  app.get("/imagepanel" , uploader.displayPanel); 
+  app.get("/imagepanel" , loggedIn, uploader.displayPanel); 
   app.post("/imagepanel" , uploader.upload);
   app.post("/removeImage" , uploader.remove);
 
