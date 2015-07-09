@@ -2,17 +2,13 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
 	var uploadPanelView = Backbone.View.extend({
 		
 		initialize: function(){
-    	this.setUpForm();
-    	
-    	$('.uploading').click(function(e) {
-    		e.preventDefault();
-    		console.log("were here right?");
-    		Events.trigger("router:navigate", "/imagepanel");
-    	});
- 		},
- 		
- 		uploadPhoto: function(){
- 			console.log("clickity click");
+    		this.setUpForm();
+    		$(".uploadbutton").click(function(e){
+    			if($(".preview").children().length < 1){	
+    				e.preventDefault();
+    				$('.status').text("Please select a file before uploading");
+    			}			
+    		});		
  		},
  		
  		setUpForm: function() {
@@ -23,9 +19,9 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
  			$('.cloudinary-fileupload').unsigned_cloudinary_upload("t4d6bca8", {
  				disableImageResize: false,
  				imageMaxWidth: 1000,
- 				imageMaxHeight: 1000,
- 				acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|ico)$/i,
- 				maxFileSize: 5000000 // 5MB
+ 				imageMaxHeight: 1000, 
+ 				acceptFileTypes: "/(\.|\/)(gif|jpe?g|png|bmp|ico)$/i",
+ 				maxFileSize: 5000000, //5mb
  			}).bind('cloudinaryprogress', function(e, data) {
  				$('.status').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
  			}).bind('cloudinaryfail', function(e, data) {

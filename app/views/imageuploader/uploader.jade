@@ -1,26 +1,18 @@
 extends ../uploaderLayout
 block content
-  - function isObjectEmpty(obj){
-  -     var name;
-  -     for(name in obj){
-  -         return false;
-  -     }
-  -     return true;
-  - }
-  -   if (isObjectEmpty(message) == false)
-    p #{message}
+  if errors
+    p Error Error
   #intialContent
     = photos
   .col-md-4
     h1 control panel
-    a.uploading(href="#") yolo
     form(action="/imagepanel", method="POST", enctype="multipart/form-data", Content-Type="application/json")
       input.cloudinary-fileupload(type="file",
        name='file' ,data-cloudinary-field='image', data-form-data='')
       input.uploadbutton(type="submit", value="Upload Image")
       span.status
       .preview
-    
+   
    .col-md-8.app
        script(id = "illustrationTemplate", type = "text/x-handlebars")
          <div class="col-md-4 remove-image">
@@ -29,4 +21,4 @@ block content
          <input type="hidden" value="{{image.public_id}}" name="imgId"/>
          <input class="remove" type="submit" value="Remove"/>
          </form>
-         </div>             
+         </div>               

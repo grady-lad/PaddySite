@@ -28,7 +28,6 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		
 		removePhoto: function(e){
 			e.preventDefault();
-			console.log("yolo");
 			Events.trigger("roueter:navigate", "/removeImage");
 		}
 

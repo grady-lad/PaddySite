@@ -16,7 +16,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		    //Increment a counter for every photo
 	 			//Create row if counter is 0 or a modulus of 3
 	 			if (counter == 0 || counter % 3 == 0){
-	 				row = $('<div class="row"></div>');
+	 				row = $('<div class="row illRow"></div>');
 	 			}
 	 			//Set up the image div 'col-md-4' located in illustrationTemplate
 	 			var photoV = new photoView({model: photo});

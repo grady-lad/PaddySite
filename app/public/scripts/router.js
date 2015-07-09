@@ -2,7 +2,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	var photoRouter = Backbone.Router.extend({
 		initialize: function() {
 			var self = this;
-			console.log("we here?");
 		    this._setupCollection();
 		    Events.on("router:navigate", function(url) {
 		        self.navigate(url, { trigger: true });
@@ -15,7 +14,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    	"imagepanel": "uploader"
 	    },
 	    _setupCollection: function() {
-	    	console.log("initalize calls setupcollection");
 			if(this.collection) return;
 			var data = $("#intialContent").html();
 			if(data != undefined){
@@ -30,7 +28,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			console.log("we went to gallery and were here");
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);  
 		},
@@ -60,8 +57,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 				var prevPhoto = this.collection.at(current - 1);
 				prevLink = prevPhoto.get("_id");
 			}
-			console.log("our current is " + current);
-			console.log(this.collection.length);
+			
 			if(current + 1 != this.collection.length) {
 				var nextPhoto = this.collection.at(current + 1);
 				nextLink = nextPhoto.get("_id");
@@ -80,7 +76,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);  
 		}
-
 	});
 	return photoRouter;
 });
