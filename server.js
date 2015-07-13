@@ -41,17 +41,26 @@ require('./config/routes')(app, passport);
 if(process.env.NODE_ENV === 'development'){
 	var livereload  = require('express-livereload');
 	livereload(app, {watchDir: process.cwd() + "/app/"});
+	
+	app.listen(config.port, config.ip, function (error) {
+		if (error) {
+			log.error("Unable to listen for connections", error);
+			process.exit(10);
+		}
+		log.info("express is listening on http://" +
+		config.ip + ":" + config.port);
+	});
 }
-//=============================
-// Starting Server
 //===============================
-app.listen(config.port, config.ip, function (error) {
-  if (error) {
-    log.error("Unable to listen for connections", error);
-    process.exit(10);
-  }
-  log.info("express is listening on http://" +
-    config.ip + ":" + config.port);
+// Production Server Config
+//===============================
+
+app.listen(config.port, function (error){
+	if(error){
+		log.error("Unable to listen for connections ", error);
+		process.exit(10);
+	}
 });
+
 
 module.exports = app;
