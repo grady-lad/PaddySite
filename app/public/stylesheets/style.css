@@ -200,7 +200,7 @@ body {
   z-index: 1;
 }
 #email {
-  width: 250px;
+  width: 10px;
   margin-bottom: 10px;
 }
 #suggestion {
@@ -210,9 +210,15 @@ body {
   margin-top: 10px;
 }
 @media (min-width: 790px) {
-  #suggestion,
-  #email {
+  #contactsuggestion,
+  #contactemail {
     width: 200%;
+  }
+}
+@media (min-width: 790px) {
+  #loginsuggestion,
+  #loginemail {
+    width: 100%;
   }
 }
 #errorMessage {
@@ -237,6 +243,17 @@ body {
   font-family: Super-Effective;
   color: #ff3c77;
   font-size: 28px;
+}
+.upload-nav-text {
+  font-size: 36px;
+  font-family: Courier New;
+  color: #222;
+}
+.going-right {
+  margin-left: 80%;
+}
+.lil-extra {
+  margin-left: 20px;
 }
 highlight {
   color: #ff3c77;

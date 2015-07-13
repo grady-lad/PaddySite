@@ -5,7 +5,7 @@ block content
   #intialContent
     = photos
   .col-md-4
-    h2 Hey Paddy just drag and drop your images below.
+    h2.upload-nav-text Hey Paddy just drag and drop your images below to start uploading.
     .uploader-panel
       form(action="/imagepanel", method="POST", enctype="multipart/form-data", Content-Type="application/json")
         input.cloudinary-fileupload(type="file",

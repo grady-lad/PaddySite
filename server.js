@@ -1,16 +1,16 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var config = require('./config/config');
+var Config = require('./config/config');
 var livereload  = require('express-livereload');
 var app = express();
 
-
+config = new Config();
 //====================================
 // DATABASE CONNECTION
 //=====================================
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/paddysdb');
+mongoose.connect(config.mongodburl);
 
 var db = mongoose.connection;
 
@@ -40,13 +40,13 @@ require('./config/routes')(app, passport);
 // Starting Server
 //===============================
 livereload(app, {watchDir: process.cwd() + "/app/"});
-app.listen(config.express.port, config.express.ip, function (error) {
+app.listen(config.port, config.ip, function (error) {
   if (error) {
     log.error("Unable to listen for connections", error);
     process.exit(10);
   }
   log.info("express is listening on http://" +
-    config.express.ip + ":" + config.express.port);
+    config.ip + ":" + config.port);
 });
 
 module.exports = app;

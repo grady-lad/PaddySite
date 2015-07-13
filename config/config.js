@@ -1,15 +1,19 @@
-var config = module.exports;
-process.env.NODE_ENV === "development";
+module.exports = function(){
+    switch(process.env.NODE_ENV){
+        case 'development':
+            return	{
+            			port: process.env.EXPRESS_PORT || 3000,
+            			ip: "127.0.0.1",
+            			mongodburl: "mongodb://localhost/paddysdb"
+            		};
 
-config.express = {
-  port: process.env.EXPRESS_PORT || 3000,
-  ip: "127.0.0.1"
+        case 'production':
+            return {
+            			port: 2000,
+            			ip: "127.0.0.1"
+            		};
+    }
 };
-
-config.default = {
-	root: ""
-}
-
 
 
 

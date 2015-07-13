@@ -1,4 +1,4 @@
-extends ../layout
+extends ../loginLayout
 block content
   .col-sm-6.col-sm-offset-3
     h1
@@ -13,7 +13,7 @@ block content
     )
       .form-group
         label Email
-        input.form-control#email(
+        input.form-control#loginemail(
           type="text"
           name="email"
          )
@@ -26,11 +26,4 @@ block content
          
         button.btn.btn-warning.btn-lg(
           type="submit"
-        ) Signup
-        
-        
-        p Already have an account? 
-          a(href="/login") Login
-        p Or go 
-          a(href="/") home
-      
+        ) Signup    
