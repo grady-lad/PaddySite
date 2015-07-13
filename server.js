@@ -55,7 +55,7 @@ if(process.env.NODE_ENV === 'development'){
 // Production Server Config
 //===============================
 
-app.listen(config.port, function (error){
+app.listen(process.env.PORT || config.port, function (error){
 	if(error){
 		log.error("Unable to listen for connections ", error);
 		process.exit(10);
