@@ -9,9 +9,9 @@ module.exports = function(){
 
         case 'production':
             return {
-            			port: process.env.EXPRESS_PORT || 3000,
+            			port: process.env.EXPRESS_PORT || 5000,
             			ip: "hidden-falls-6850.herokuapp.com",
-            			mongodburl: "mongodb://staging"
+            			mongodburl: "mongodb://heroku_jmtqwb0j:tpkgugqvenu87jeh0i8gfk7i5f@ds047622.mongolab.com:47622/heroku_jmtqwb0j"
             		};
     }
 };
