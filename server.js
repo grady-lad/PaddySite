@@ -54,13 +54,13 @@ if(process.env.NODE_ENV === 'development'){
 //===============================
 // Production Server Config
 //===============================
-
+if(process.env.NODE_ENV === 'production'){
 app.listen(process.env.PORT || config.port, function (error){
 	if(error){
 		log.error("Unable to listen for connections ", error);
 		process.exit(10);
 	}
 });
-
+}
 
 module.exports = app;

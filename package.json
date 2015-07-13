@@ -4,6 +4,7 @@
   "description": "Paddys little web app",
   "scripts": {
     "start": "node server.js"
+  
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,8 @@
     "gulp-stylus": "^1.3.3",
     "gulp-nodemon": "^1.0.4",
     "mocha": "2.2.5",
-    "chai": "3.0.0"
+    "chai": ">= 1 < 3",
+    "chai-webdriver": "1.1.1",
+    "selenium-webdriver": "2.46.1"
   }
 }
