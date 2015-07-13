@@ -10,7 +10,7 @@ module.exports = function(){
         case 'production':
             return {
             			port: process.env.EXPRESS_PORT || 3000,
-            			ip: "https/hidden-falls-6850.herokuapp.com",
+            			ip: "hidden-falls-6850.herokuapp.com",
             			mongodburl: "mongodb://staging"
             		};
     }
