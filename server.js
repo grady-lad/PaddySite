@@ -35,6 +35,7 @@ log.info("server process starting");
 require('./config/passport')(passport, config);
 require('./config/express')(app, passport);
 require('./config/routes')(app, passport);
+
 //=============================
 // Development Server Config
 //===============================
@@ -51,6 +52,7 @@ if(process.env.NODE_ENV === 'development'){
 		config.ip + ":" + config.port);
 	});
 }
+
 //===============================
 // Production Server Config
 //===============================
