@@ -2,7 +2,6 @@ var express = require('express');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var Config = require('./config/config');
-var livereload  = require('express-livereload');
 var app = express();
 
 config = new Config();
@@ -37,9 +36,15 @@ require('./config/passport')(passport, config);
 require('./config/express')(app, passport);
 require('./config/routes')(app, passport);
 //=============================
+// Development Server Config
+//===============================
+if(process.env.NODE_ENV === 'development'){
+	var livereload  = require('express-livereload');
+	livereload(app, {watchDir: process.cwd() + "/app/"});
+}
+//=============================
 // Starting Server
 //===============================
-livereload(app, {watchDir: process.cwd() + "/app/"});
 app.listen(config.port, config.ip, function (error) {
   if (error) {
     log.error("Unable to listen for connections", error);
