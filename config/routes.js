@@ -68,6 +68,7 @@ module.exports = function (app, passport) {
   // assume 404 since no middleware responded
   app.use(function (req, res, next) {
     res.status(404).render('errors/notFound', {
+      title: 'Not Found',
       url: req.originalUrl,
       error: 'Not found'
     });

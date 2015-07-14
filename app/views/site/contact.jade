@@ -23,7 +23,7 @@ block content
 		form#feedback(
 				method="post"
 				name="feedback"
-				enctype="application/x-www-form-urlendcoded"
+				enctype="multipart/form-data"
 				)
 					.row
 						.col-md-6.col
@@ -43,7 +43,7 @@ block content
 					.row
 						.col-md-6.col-md
 							-   if (isObjectEmpty(errors) == false)
-									#errorMessage
+									#errorMessages
 										p= "Woops, we need:"
 											each error in errors
 												li#errorMessage= error.msg
