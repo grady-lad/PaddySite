@@ -22,14 +22,16 @@ exports.upload = function (req, res) {
 
 	var photo = new Photo();
 	var image = req.body.image;
-	photo.image = JSON.parse(image);
-	photo.save(function(err){
-		if(err){
-			console.log("saving error \n " + err);
-			res.render("imageuplader/upload", {errors: err});
-			return;
-		}
-	});
+	if(image != undefined){
+		photo.image = JSON.parse(image);
+		photo.save(function(err){
+			if(err){
+				console.log("saving error \n " + err);
+				res.render("imageuplader/upload", {errors: err});
+				return;
+			}
+		});
+	}
 	res.redirect('/imagepanel');	 
 }
 

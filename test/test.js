@@ -8,7 +8,8 @@ function importTest(name, path) {
 describe("Running test suite", function () {
 	/** Controller Test's **/
 	importTest("Running homepage test suite", './controllers/siteTest');
-    
+    /** Model Tests **/
+	importTest('Running photo model Tests', './models/photoTest');
     after(function (done) {
         console.log("Shutting down Server");
         done();
