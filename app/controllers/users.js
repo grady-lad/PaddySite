@@ -1,6 +1,6 @@
 
 exports.login = function (req, res) {
-	res.render("users/login", { message: req.flash('loginMessage') });
+	res.render("users/login", { message: req.flash('loginMessage'), title: 'Login' });
 };
 
 exports.signup = function (req, res) {
