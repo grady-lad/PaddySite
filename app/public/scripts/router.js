@@ -31,6 +31,9 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);  
 		},
+		/**
+		 * The below is a mess!!! really need to fix it up sooon!!!
+		 */
 		singleIll: function(id){
 			
 			var split = id.split("=");
@@ -43,7 +46,8 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			var counter = 0;
 			this.collection.each(function(photo){
 				if(singleIllustration.get("_id") === photo.get("_id")){
-					current = counter;	
+					current = counter;
+					//Sjould be exiting the loop here
 				}
 				counter++;
 			});

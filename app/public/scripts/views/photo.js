@@ -6,12 +6,10 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 	    "submit .remove": "removePhoto"
 		},
 		render: function(){
-			//console.log(this.model);
 			var template = $("#illustrationTemplate").html();
 			var compiled = Handlebars.compile(template);
 			//Pass the attributes to #illustrationTemplate and create the div there.
 			var html = compiled(this.model.attributes);
-			console.log(this.model.attributes);
 			this.$el.html(html);
 			return this;
 		},

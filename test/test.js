@@ -8,6 +8,7 @@ function importTest(name, path) {
 describe("Running test suite", function () {
 	/** Controller Test's **/
 	importTest("Running homepage test suite", './controllers/siteTest');
+	importTest("Running homepage test suite", './controllers/userTest');
     /** Model Tests **/
 	importTest('Running photo model Tests', './models/photoTest');
     after(function (done) {

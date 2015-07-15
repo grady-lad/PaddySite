@@ -9,8 +9,6 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		    var template = $("#singleIllustrationTemplate").html();
 		    var compiled = Handlebars.compile(template);
 		    var html = compiled(this.model.attributes);
-		    console.log("And the attributes are : ");
-		    console.log(this.model.attributes)
 		    this.$el.html(html);
 		    return this;
 		},
