@@ -1,0 +1,23 @@
+{  
+   "image":{  
+      "path":"v1436454625/fxksmfxqxdh0qujjgwre.jpg",
+      "delete_token":"0ea71265b9ce3e6480330559847d0a1333d9ce855269148f12f59f8b7073df80c713cc5468d94af41309da258ab904087641fcc39898e6d8dc86376d031a25cb81f3cc7eb2f3f549823b7dba9a02ef95205039ac32c48d288ade1d6bdf08dd545feba45a58dbbd404421ab29af7027b3970410723ac8d726b423893360838b280d91a48255026f6093679660ae681b78a7fd2aaea1358a179b2397e64979bd5f983d784c5ae8e71aae3b0e9601c4503d",
+      "original_filename":"Finn_Weddle",
+      "secure_url":"https://res.cloudinary.com/dzx1ez426/image/upload/v1436454625/fxksmfxqxdh0qujjgwre.jpg",
+      "url":"http://res.cloudinary.com/dzx1ez426/image/upload/v1436454625/fxksmfxqxdh0qujjgwre.jpg",
+      "etag":"01893901055cc5d9349ec2bd1fb69f3e",
+      "type":"upload",
+      "bytes":138579,
+      "tags":[  
+
+      ],
+      "created_at":"2015-07-09T15:10:25Z",
+      "resource_type":"image",
+      "format":"jpg",
+      "height":800,
+      "width":533,
+      "signature":"f014c96c0059c86344f484ebcaa65ce4b45b60e6",
+      "version":1436454625,
+      "public_id":"fxksmfxqxdh0qujjgwre"
+   }
+}
