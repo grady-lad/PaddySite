@@ -20,11 +20,19 @@ var User            = require('../../app/models/users');
     	// asynchronous
     	// User.findOne wont fire unless data is sent back
     	process.nextTick(function() {
+    	//Email Validation
+    	if(!validateEmail(email)){
+			return done(null, false, req.flash('signupMessage', 'Please enter a valid email.'));
+    	}
+    	
+    	//Password length validation
+    	if(password.length < 6){
+			return done(null, false, req.flash('signupMessage', 'Passwords must contain more than six characters.'));
+    	}
+    	
     	// find a user whose email is the same as the forms email
     	// we are checking to see if the user trying to login already exists
     	User.findOne({ 'local.email' :  email }, function(err, user) {
-    		console.log(email);
-    		console.log(password);
     		// if there are any errors, return the error
     			if (err)
     				return done(err);
@@ -49,4 +57,9 @@ var User            = require('../../app/models/users');
     	});    
 
     	});
+    	
+    	function validateEmail(email) {
+    		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    		return re.test(email);
+    	}
 });
