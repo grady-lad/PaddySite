@@ -34,7 +34,6 @@ describe("Photo Model Tests" , function () {
 			if(err){
 				done(err);
 			}
-			console.log(photo.image);
 			expect(photo.image.public_id).to.equal(image.image.public_id);
 			done();
 		});

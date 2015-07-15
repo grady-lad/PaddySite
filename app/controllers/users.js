@@ -4,15 +4,8 @@ exports.login = function (req, res) {
 };
 
 exports.signup = function (req, res) {
-	res.render("users/signup", { message: req.flash('signupMessage') });
+	res.render("users/signup", { message: req.flash('signupMessage'), title: 'Signup' });
 };
-
-exports.needUser = function (req, res) {
-	isLoggedIn(req, res);
-	res.render('users/profile', {
-         user : req.user // get the user out of session and pass to template
-     });	
-}
 
 function isLoggedIn(req, res) {
     // if user is authenticated in the session, carry on 
