@@ -36,3 +36,6 @@ app/assets/stylesheets/style.css
 #eclipse
 .project
 .buildpath
+
+#heroku
+.idea/
