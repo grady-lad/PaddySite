@@ -1,3 +1,4 @@
+"use strict";
 var localSignup = require('./passport/local-signup');
 var localLogin  = require('./passport/local-login');
 var User            = require('../app/models/users');

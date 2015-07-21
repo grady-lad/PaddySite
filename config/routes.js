@@ -1,10 +1,8 @@
-/**
- * New node file
- */
+"use strict";
 var users = require('../app/controllers/users');
 var site = require('../app/controllers/site');
 var uploader = require('../app/controllers/uploader');
-var auth = require('./middlewares/authorization');
+
 
 module.exports = function (app, passport) {
 	
@@ -55,11 +53,9 @@ module.exports = function (app, passport) {
   //================
   app.use(function (err, req, res, next) {
     // treat as 404
-    if (err.message
-      && (~err.message.indexOf('not found')
-      || (~err.message.indexOf('Cast to ObjectId failed')))) {
+    if (err.message && (err.message.indexOf('not found') || (err.message.indexOf('Cast to ObjectId failed')))) {
     	return next();
-      }
+    }
       console.error(err.stack);
       // error page
       res.status(500).render('errors/notFound', { error: err.stack });
@@ -74,6 +70,4 @@ module.exports = function (app, passport) {
     });
   });
 
-}
-
-
+};
