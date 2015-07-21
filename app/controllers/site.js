@@ -1,4 +1,4 @@
-var fs            = require('fs');
+"use strict";
 var nodemailer    = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var Photo 		  = require('../models/photos');
@@ -6,15 +6,15 @@ var Photo 		  = require('../models/photos');
 
 exports.home = function (req, res) {
   res.render("site/home", {title: 'Home'});
-}
+};
 
 exports.about = function (req, res) {
   res.render("site/about", {title: 'About'});
-}
+};
 
 exports.blog = function (req, res) {
   res.render("site/blog", {title: 'Blog'});
-}
+};
 
 exports.illustration = function (req, res) {
 	/** Find our photos and order than by id**/
@@ -23,12 +23,12 @@ exports.illustration = function (req, res) {
 		//res.json(photos);
 		var data = JSON.stringify(photos);
 		res.render("site/illustration" , {title: 'Illustration', photos: data});
-	})
-}
+	});
+};
 
 exports.contact = function(req, res) {
 	res.render("site/contact" , {message: '', errors: {}, title: 'Contact' });
-}
+};
 
 /** Used to contact Paddy**/
 exports.sendQuery = function(req, res){
@@ -77,8 +77,4 @@ exports.sendQuery = function(req, res){
                   message: '',
                   errors: errors});
     }
-}
-
-
-
-
+};

@@ -1,4 +1,4 @@
-
+"use strict";
 exports.login = function (req, res) {
 	res.render("users/login", { message: req.flash('loginMessage'), title: 'Login' });
 };
@@ -20,5 +20,3 @@ exports.logout = function (req, res) {
   req.logout();
   res.redirect('/');
 };
-
-

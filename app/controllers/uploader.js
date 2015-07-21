@@ -1,3 +1,4 @@
+"use strict";
 var fs    = require('fs');
 var Photo  = require('../models/photos');
 var cloudinary = require('cloudinary');
@@ -10,19 +11,19 @@ exports.displayPanel = function (req, res) {
 			res.render("imageuploader/upload", {errors: err});
 			return;
 		}
-		else if(photos != undefined){
+		else if(photos !== undefined){
 			var data = JSON.stringify(photos);
 			res.render('imageuploader/uploader', {photos: data});
 		}
 		
 	});	
-}
+};
 
 exports.upload = function (req, res) {	
 
 	var photo = new Photo();
 	var image = req.body.image;
-	if(image != undefined){
+	if(image !== undefined){
 		photo.image = JSON.parse(image);
 		photo.save(function(err){
 			if(err){
@@ -33,7 +34,7 @@ exports.upload = function (req, res) {
 		});
 	}
 	res.redirect('/imagepanel');	 
-}
+};
 
 exports.remove = function (req, res) {	
 	var public_id = req.body.imgId;
@@ -44,7 +45,7 @@ exports.remove = function (req, res) {
 				 res.render("imageuplader/upload", {errors: err});
 			 }
 	    cloudinary.api.delete_resources([''],
-        function(result){console.log(result)});    
+        function(result){console.log(result);});    
 	});
 	res.redirect('/imagepanel');
-}
+};
