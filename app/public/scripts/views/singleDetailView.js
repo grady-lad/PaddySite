@@ -6,6 +6,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		},
 		
         render: function() {
+			"use strict";
 		    var template = $("#singleIllustrationTemplate").html();
 		    var compiled = Handlebars.compile(template);
 		    var html = compiled(this.model.attributes);
@@ -14,6 +15,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		},
 		
 		prevIllView: function(e) {
+			"use strict";
 			e.preventDefault();
 			
 			var id = this.model.get("prevUrl");
@@ -22,6 +24,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		},
 		
 		nextIllView: function(e) {
+			"use strict";
 			e.preventDefault();
 			
 			var id = this.model.get("nextUrl");

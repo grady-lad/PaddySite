@@ -8,6 +8,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 	 //TODO: Move render logic into here.
 	 	},
 	 	render: function(){
+	 		"use strict";
 	 		this.$el.html("");
 	 		var counter = "0";
 	 		var row;

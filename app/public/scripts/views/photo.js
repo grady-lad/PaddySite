@@ -6,6 +6,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 	    "submit .remove": "removePhoto"
 		},
 		render: function(){
+			"use strict";
 			var template = $("#illustrationTemplate").html();
 			var compiled = Handlebars.compile(template);
 			//Pass the attributes to #illustrationTemplate and create the div there.
@@ -16,6 +17,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		//When a model is clicked we to navigate to '/photo?id='
 		// and let our router do the rest :)
 		singleIllView: function(e){
+			"use strict";
 			e.preventDefault();
 			//var id = this.model.get("image").created_at;
 			var id = this.model.get("_id");
@@ -25,6 +27,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		},
 		
 		removePhoto: function(e){
+			"use strict";
 			e.preventDefault();
 			Events.trigger("roueter:navigate", "/removeImage");
 		}
