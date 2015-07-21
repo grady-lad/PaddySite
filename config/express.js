@@ -1,3 +1,4 @@
+"use strict";
 var express 	 	 = require("express");
 var session      	 = require('express-session');
 var cookieParser 	 = require('cookie-parser');
@@ -5,7 +6,6 @@ var bodyParser 	 	 = require('body-parser');
 var flash    	 	 = require('connect-flash');
 var cloudinary 	 	 = require('cloudinary');
 var multer   	     = require('multer');
-var methodOverride   = require('method-override');
 var expressValidator = require('express-validator');
 var path 			 = require('path');
 /**
@@ -30,10 +30,10 @@ module.exports = function (app, passport) {
 	//=====================
 	if (typeof(process.env.CLOUDINARY_URL)=='undefined'){
 		console.warn('!! cloudinary config is undefined !!');
-		console.warn('export CLOUDINARY_URL or set dotenv file')
+		console.warn('export CLOUDINARY_URL or set dotenv file');
 	}else{
 		console.log('cloudinary config:');
-		console.log(cloudinary.config())
+		console.log(cloudinary.config());
 	}
 	
 	//======================
