@@ -16,14 +16,14 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    _setupCollection: function() {
 			if(this.collection) return;
 			var data = $("#intialContent").html();
-			if(data != undefined){
+			if(data !== undefined){
 			this.collection = new photoCollection(JSON.parse(data));
 			}
 		},
 		
 		_renderView: function(view) {
 			$(".app").html(view.render().el);
-			$(".img-fade").animate({ opacity: 1,}, 2000)
+			$(".img-fade").animate({ opacity: 1,}, 2000);
 		},
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
@@ -35,7 +35,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		 * The below is a mess!!! really need to fix it up sooon!!!
 		 */
 		singleIll: function(id){
-			
+			"use strict";
 			var split = id.split("=");
 			var singleIllustrationId = split[1];
 			var singleIllustration = this.collection.findWhere({_id: singleIllustrationId});
@@ -53,7 +53,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			});
 
 			var currentPhoto = this.collection.at(current);
-			var currentPhotoURL = currentPhoto.get("image").url;
 			var prevLink = "";
 			var nextLink = "";
 	
@@ -76,7 +75,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		},
 		
 		uploader: function(){
-			var uploadView = new uploadPanelView();
+			"use strict";
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);  
 		}
