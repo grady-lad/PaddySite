@@ -36,24 +36,6 @@ require('./config/passport')(passport, config);
 require('./config/express')(app, passport);
 require('./config/routes')(app, passport);
 
-//=============================
-// Development Server Config
-//===============================
-console.log("*******************" + process.env.NODE_ENV + "****************************");
-if(process.env.NODE_ENV === 'development' || 'test'){
-	console.log("*******************8IN HERE*************************");
-	var livereload  = require('express-livereload');
-	livereload(app, {watchDir: process.cwd() + "/app/"});
-	
-	app.listen(config.port, config.ip, function (error) {
-		if (error) {
-			log.error("Unable to listen for connections", error);
-			process.exit(10);
-		}
-		log.info("express is listening on http://" +
-		config.ip + ":" + config.port);
-	});
-}
 
 //===============================
 // Production Server Config
