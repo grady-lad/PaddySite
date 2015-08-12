@@ -40,6 +40,7 @@ require('./config/routes')(app, passport);
 // Development Server Config
 //===============================
 if(process.env.NODE_ENV === 'development' || 'test'){
+	console.log("*******************8IN HERE*************************");
 	var livereload  = require('express-livereload');
 	livereload(app, {watchDir: process.cwd() + "/app/"});
 	
