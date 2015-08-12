@@ -298,6 +298,16 @@ highlight a {
   width: 100%;
   overflow: hidden;
 }
+.loading {
+  position: fixed;
+  opacity: 0.1px;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("../images/ajax-loader.gif") 50% 50% no-repeat;
+}
 .multipleIll {
   height: auto;
   width: auto;
@@ -307,6 +317,6 @@ highlight a {
 .uploader-panel {
   border: 4px solid #eee;
 }
-.uploader-panel .uploadbutton {
+.uploadbutton {
   margin-top: 10px;
 }

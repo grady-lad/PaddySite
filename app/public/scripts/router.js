@@ -23,13 +23,17 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		_renderView: function(view) {
 			$(".app").html(view.render().el);
-			$(".img-fade").animate({ opacity: 1,}, 2000);
+			$(".img-fade").animate({ opacity: 1}, 2000);
 		},
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			var view = new photoCollectionView({collection: this.collection});
-			this._renderView(view);  
+			$(".app").append('<div class="loading"></div>');
+			var self = this;
+			var view = new photoCollectionView({collection: self.collection});
+			self._renderView(view); 
+			
+			 
 		},
 		/**
 		 * The below is a mess!!! really need to fix it up sooon!!!
