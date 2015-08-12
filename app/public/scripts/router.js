@@ -22,6 +22,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		},
 		
 		_renderView: function(view) {
+			$(".loading").hide();
 			$(".app").html(view.render().el);
 			$(".img-fade").animate({ opacity: 1}, 2000);
 		},
@@ -30,8 +31,10 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		illustration: function() {
 			$(".app").append('<div class="loading"></div>');
 			var self = this;
+			setTimeout(function(){
 			var view = new photoCollectionView({collection: self.collection});
-			self._renderView(view); 
+			self._renderView(view);
+			}, 2000);
 			
 			 
 		},
