@@ -33,7 +33,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			$(".app").append('<div class="loading"></div>');
+			//$(".app").append('<div class="loading"></div>');
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);
 		},
