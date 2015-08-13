@@ -9,7 +9,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    },
 	    
 	    routes: {
-	    	"gallery": "illustrationTest",
+	    	"gallery": "illustration",
 	    	"photo": "singleIll",
 	    	"imagepanel": "uploader"
 	    },
@@ -29,18 +29,9 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			$(".app").append('<div class="loading"></div>');
 			var self = this;
-			setTimeout(function(){
 			var view = new photoCollectionView({collection: self.collection});
-			self._renderView(view);
-			}, 2000);	 
-		},
-		
-		illustrationTest: function(){
-			$(".app").append('<div class="loading"></div>');
-			var view = new photoCollectionView({collection: this.collection});
-			view.testyRender();
+			self._renderView(view);	 
 		},
 		/**
 		 * The below is a mess!!! really need to fix it up sooon!!!
@@ -87,6 +78,8 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		uploader: function(){
 			"use strict";
+			console.log("ehhhehehehehe what the fuck");
+			var uploadView = new uploadPanelView();
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);  
 		}

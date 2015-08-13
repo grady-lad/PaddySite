@@ -12,6 +12,7 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
  		},
  		
  		setUpForm: function() {
+ 			console.log("what the fuck");
  			$.cloudinary.config({
  				"api_key": "932255541789328",
  				"cloud_name": "dzx1ez426"
@@ -21,7 +22,7 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
  				imageMaxWidth: 1000,
  				imageMaxHeight: 1000, 
  				acceptFileTypes: "/(\.|\/)(gif|jpe?g|png|bmp|ico)$/i",
- 				maxFileSize: 5000000, //5mb
+ 				maxFileSize: 5000000 //5mb
  			}).bind('cloudinaryprogress', function(e, data) {
  				$('.status').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
  			}).bind('cloudinaryfail', function(e, data) {
