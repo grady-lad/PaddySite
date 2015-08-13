@@ -9,7 +9,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    },
 	    
 	    routes: {
-	    	"gallery": "illustration",
+	    	"gallery": "illustrationTesty",
 	    	"photo": "singleIll",
 	    	"imagepanel": "uploader"
 	    },
@@ -22,16 +22,16 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		},
 		
 		_renderView: function(view) {
-			$(".loading").hide();
-			$(".app").html(view.render().el);
-			$(".img-fade").animate({ opacity: 1}, 2000);
+			$(".app").append(view.render().el);
+			//$(".img-fade").animate({ opacity: 1}, 2000);
+			console.log("While this is called before");
 		},
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			var self = this;
-			var view = new photoCollectionView({collection: self.collection});
-			self._renderView(view);	 
+			$(".app").append('<div class="loading"></div>');
+			var view = new photoCollectionView({collection: this.collection});
+			this._renderView(view);
 		},
 		/**
 		 * The below is a mess!!! really need to fix it up sooon!!!
@@ -78,7 +78,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		uploader: function(){
 			"use strict";
-			console.log("ehhhehehehehe what the fuck");
+			$(".app").append('<div class="loading"></div>');
 			var uploadView = new uploadPanelView();
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);  
