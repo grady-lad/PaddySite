@@ -23,8 +23,12 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		_renderView: function(view) {
 			$(".app").append(view.render().el);
-			//$(".img-fade").animate({ opacity: 1}, 2000);
 			console.log("While this is called before");
+		},
+		//should manage this better?
+		renderViewIll: function(view){
+			$(".app").html(view.render().el);
+			$(".img-fade").animate({ opacity: 1}, 2000);
 		},
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
@@ -72,7 +76,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			singleIllustration.set({prevUrl: prevLink});
 	
 			var view = new singleDetailView({model: singleIllustration});
-			this._renderView(view);
+			this.renderViewIll(view);
 	
 		},
 		
