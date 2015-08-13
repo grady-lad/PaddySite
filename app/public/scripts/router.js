@@ -9,7 +9,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    },
 	    
 	    routes: {
-	    	"gallery": "illustrationTesty",
+	    	"gallery": "illustration",
 	    	"photo": "singleIll",
 	    	"imagepanel": "uploader"
 	    },
