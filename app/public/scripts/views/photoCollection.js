@@ -39,6 +39,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 	},
 	 	
 	 	testyRender: function(){
+	 		"use strict";
 	 		var counter = 0;
 	 		var row;
 	 		this.collection.each(function(photo){
@@ -47,7 +48,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 			 row = $('<div class="row illRow"></div>');
 	 			}
 	 			else if(counter % 3 == 0){
-	 				self.addOne(row);
+	 				this.addOne(row);
 	 				row = $('<div class="row illRow"></div>');
 	 			}	
 	 			//Set up the image div 'col-md-4' located in illustrationTemplate
