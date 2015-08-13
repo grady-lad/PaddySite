@@ -9,7 +9,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    },
 	    
 	    routes: {
-	    	"gallery": "illustration",
+	    	"gallery": "illustrationTest",
 	    	"photo": "singleIll",
 	    	"imagepanel": "uploader"
 	    },
@@ -34,9 +34,13 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			setTimeout(function(){
 			var view = new photoCollectionView({collection: self.collection});
 			self._renderView(view);
-			}, 2000);
-			
-			 
+			}, 2000);	 
+		},
+		
+		illustrationTest: function(){
+			$(".app").append('<div class="loading"></div>');
+			var view = new photoCollectionView({collection: this.collection});
+			view.testyRender();
 		},
 		/**
 		 * The below is a mess!!! really need to fix it up sooon!!!
