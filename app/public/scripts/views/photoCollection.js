@@ -47,7 +47,6 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 			 row = $('<div class="row illRow"></div>');
 	 			}
 	 			else if(counter % 3 == 0){
-	 				conosle.log("hyh?");
 	 				self.addOne(row);
 	 				row = $('<div class="row illRow"></div>');
 	 			}	
