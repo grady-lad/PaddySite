@@ -315,8 +315,9 @@ highlight a {
   overflow: hidden;
 }
 .multipleIll {
-  height: 100% !important;
-  width: 100%;
+  height: 400px !important;
+  width: 400px !important;
+  overflow: hidden;
 }
 .uploader-panel {
   border: 4px solid #eee;
