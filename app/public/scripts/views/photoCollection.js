@@ -14,7 +14,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		self.collection.each(function(photo){
 	 			setTimeout(function(){
 	 				if(counter == 0 ||counter % 3 == 0){
-		 				//SHO	W THE ROW !!!!!!
+		 				//SHOW THE ROW !!!!!!
 		 				//append previous row
 		 				row = $('<div class="row illRow"></div>');
 		 			}

@@ -45,33 +45,10 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			var split = id.split("=");
 			var singleIllustrationId = split[1];
 			var singleIllustration = this.collection.findWhere({_id: singleIllustrationId});
-
-			//looping through the collection to get the prev/Next Illustrations
-
-			var current = 0;
-			var counter = 0;
-			this.collection.each(function(photo){
-				if(singleIllustration.get("_id") === photo.get("_id")){
-					current = counter;
-					//Sjould be exiting the loop here
-				}
-				counter++;
-			});
-
-			var currentPhoto = this.collection.at(current);
-			var prevLink = "";
-			var nextLink = "";
-	
-			if(current >= 1) { 
-				var prevPhoto = this.collection.at(current - 1);
-				prevLink = prevPhoto.get("_id");
-			}
+			var currentIndex = this.collection.indexOf(singleIllustration);
+			var prevLink = this.collection.getPrevUrl(currentIndex);
+			var nextLink = this.collection.getNextUrl(currentIndex);
 			
-			if(current + 1 != this.collection.length) {
-				var nextPhoto = this.collection.at(current + 1);
-				nextLink = nextPhoto.get("_id");
-			}
-	
 			singleIllustration.set({nextUrl: nextLink});
 			singleIllustration.set({prevUrl: prevLink});
 	
