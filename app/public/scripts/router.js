@@ -23,7 +23,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		_renderView: function(view) {
 			$(".app").append(view.render().el);
-			console.log("While this is called before");
 		},
 		//should manage this better?
 		renderViewIll: function(view){
@@ -33,7 +32,8 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			//$(".app").append('<div class="loading"></div>');
+			$('.app').html('');
+			$(".app").append('<div class="loading"></div>');
 			var view = new photoCollectionView({collection: this.collection});
 			this._renderView(view);
 		},
@@ -42,6 +42,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		 */
 		singleIll: function(id){
 			"use strict";
+			console.log("arrrgh");
 			var split = id.split("=");
 			var singleIllustrationId = split[1];
 			var singleIllustration = this.collection.findWhere({_id: singleIllustrationId});
