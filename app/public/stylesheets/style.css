@@ -309,14 +309,16 @@ highlight a {
   background: url("../images/ajax-loader.gif") 50% 50% no-repeat;
 }
 .centerIll {
-  width: 400px;
+  width: 300px;
+!important
   height: 400px;
   max-height: 400px;
   overflow: hidden;
 }
+!important
 .multipleIll {
   height: 400px !important;
-  width: 400px !important;
+  width: 300px !important;
   overflow: hidden;
 }
 .uploader-panel {
