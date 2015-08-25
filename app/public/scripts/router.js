@@ -14,7 +14,8 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    	"imagepanel": "uploader"
 	    },
 	    _setupCollection: function() {
-			if(this.collection) return;
+	    	
+			if(this.collection){return this.collection;} 
 			var data = $("#intialContent").html();
 			if(data !== undefined){
 			this.collection = new photoCollection(JSON.parse(data));
@@ -32,17 +33,19 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
+			var counter = 0;
 			$('.app').html('');
 			$(".app").append('<div class="loading"></div>');
 			var view = new photoCollectionView({collection: this.collection});
-			this._renderView(view);
+			view.renderB();
+			
+			//this._renderView(view);
 		},
 		/**
 		 * The below is a mess!!! really need to fix it up sooon!!!
 		 */
 		singleIll: function(id){
 			"use strict";
-			console.log("arrrgh");
 			var split = id.split("=");
 			var singleIllustrationId = split[1];
 			var singleIllustration = this.collection.findWhere({_id: singleIllustrationId});

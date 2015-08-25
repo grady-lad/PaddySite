@@ -30,6 +30,31 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 			}, 1000);
 	 		}, self);
 	 		return this;
+	 	},
+
+
+	 	renderB: function(){
+	 		//We want to call this from the router
+	 		//When we have created an image or a row call resolve.
+	 		//Within resolve add the images to the page.
+	 		var self = this;
+	 		var counter = 0;
+	 		var row;
+	 			self.collection.each(function(photo){
+	 				var photoV = new photoView({model: photo});
+	 				if(counter == 0 ||counter % 3 == 0){
+		 				//SHOW THE ROW !!!!!!
+		 				//append previous row
+		 				row = $('<div class="row illRow"></div>');
+		 				$('.app').append(row);
+		 			}
+		 			var photoV = new photoView({model: photo});
+		 			row.append(photoV.render().el);
+		 			$('.loading').hide();
+		 			$(".img-fade").animate({ opacity: 1}, 2000);
+		 			counter++;			
+	 			}, self);
+	 		
 	 	}
 	});
 	return photoCollectionView;
