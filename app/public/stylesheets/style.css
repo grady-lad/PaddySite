@@ -236,6 +236,9 @@ body {
   width: 200px;
   margin-left: 3%;
 }
+.app {
+  min-height: 300px;
+}
 .about-text {
   font-family: apple_regular;
 }
@@ -262,7 +265,7 @@ highlight a {
   color: #ff3c77;
 }
 .logo_and_navbar {
-  margin-top: 85px;
+  margin-top: 25px;
 }
 .nav-logo {
   margin-top: -15px !important;

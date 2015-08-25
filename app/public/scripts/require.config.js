@@ -9,7 +9,8 @@ require.config({
     jqueryUI: 'lib/jquery.ui.widget',
     jqueryIframe: 'lib/jquery.iframe-transport',
     jqueryFileupload: 'lib/jquery.fileupload',
-    jqueryCloudinary: 'lib/jquery.cloudinary'
+    jqueryCloudinary: 'lib/jquery.cloudinary',
+    helper: 'lib/custom/helper'
   },
   shim: {
     backbone: {
@@ -31,4 +32,4 @@ require.config({
   },
 });
 
-require(["init", "jquery", "bootstrap", "jqueryCloudinary"]);
+require(["init", "jquery", "bootstrap", "jqueryCloudinary", "helper"]);

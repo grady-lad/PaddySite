@@ -2,7 +2,8 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 	var singleDetailView = Backbone.View.extend({
 		events: {
 		"click .nextIll": "nextIllView",
-		"click .prevIll": "prevIllView"
+		"click .prevIll": "prevIllView",
+		"click .singleIll": "calcDirection"
 		},
 		
         render: function() {
@@ -14,23 +15,27 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		    return this;
 		},
 		
-		prevIllView: function(e) {
-			"use strict";
-			e.preventDefault();
-			
-			var id = this.model.get("prevUrl");
-			var url = "photo?id=" + id;
-		    Events.trigger("router:navigate", url);
+		switchUrl: function(urlId){
+			var id = this.model.get(urlId);
+			if(id !== undefined){
+				var url = "photo?id=" + id;
+		    	Events.trigger("router:navigate", url);
+		    }
 		},
-		
-		nextIllView: function(e) {
-			"use strict";
+
+		calcDirection: function(e){
 			e.preventDefault();
-			
-			var id = this.model.get("nextUrl");
-			var url = "photo?id=" + id;
-		    Events.trigger("router:navigate", url);
-		}
+			var offset = $(".singleIll").offset(); 
+       		var pos_x = e.pageX - offset.left;
+       		var middle = $(".singleIll").outerWidth() / 2;
+       		if(pos_x < middle){
+           		this.switchUrl('prevUrl');
+       		}
+       		else
+       		{
+            	this.switchUrl("nextUrl");
+       		}
+       	}
 	});
 	return singleDetailView;
 });

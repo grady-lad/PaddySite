@@ -54,6 +54,8 @@ body
   width 200px
   margin-left 3%
  
+.app
+  min-height 300px
 .about-text
    font-family apple_regular
 
@@ -80,10 +82,10 @@ highlight a
   color #FF3C77
   
 .logo_and_navbar
-  margin-top 85px
+  margin-top 25px
 
 .nav-logo
-  margin-top: -15px !important
+  margin-top -15px !important
 
 .footer
    padding-top 100px
@@ -114,15 +116,30 @@ highlight a
   height 300px
   width 100%
   overflow hidden
- 
+  
+.loading
+  position fixed
+  opacity 0.1px
+  left 0px
+  top 0px
+  width 100%
+  height 100%
+  z-index 9999
+  background url('../images/ajax-loader.gif') 50% 50% no-repeat 
+  
+.centerIll
+  width 300px; !important
+  height 400px;
+  max-height 400px
+  overflow hidden
+  
 .multipleIll
-  height auto 
-  width auto 
-  max-width 300px 
-  max-height 300px
+  height 400px !important
+  width 300px !important
+  overflow hidden
   
 .uploader-panel
  border 4px solid #eee
  
- .uploadbutton
-   margin-top 10px
+.uploadbutton
+  margin-top 10px
