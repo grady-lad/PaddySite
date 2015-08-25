@@ -279,9 +279,6 @@ highlight a {
 #intialContent {
   display: none;
 }
-.img-fade {
-  opacity: 0;
-}
 .img-centre {
   margin: 0 auto;
 }
