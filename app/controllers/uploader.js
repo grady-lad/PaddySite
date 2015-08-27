@@ -20,20 +20,22 @@ exports.displayPanel = function (req, res) {
 };
 
 exports.upload = function (req, res) {	
-
 	var photo = new Photo();
 	var image = req.body.image;
+	
 	if(image !== undefined){
-		photo.image = JSON.parse(image);
-		photo.save(function(err){
-			if(err){
+		photo.image = image;
+		photo.save(function(err , photos){
+			if(!err){
+				console.log(photos);
+				return res.send(photos);
+			}else{
 				console.log("saving error \n " + err);
 				res.render("imageuplader/upload", {errors: err});
 				return;
 			}
 		});
-	}
-	res.redirect('/imagepanel');	 
+	}	 
 };
 
 exports.remove = function (req, res) {	
