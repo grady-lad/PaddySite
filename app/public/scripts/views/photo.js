@@ -10,6 +10,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			var template = $("#illustrationTemplate").html();
 			var compiled = Handlebars.compile(template);
 			//Pass the attributes to #illustrationTemplate and create the div there.
+			
 			var html = compiled(this.model.attributes);
 			this.$el.html(html);
 			return this;

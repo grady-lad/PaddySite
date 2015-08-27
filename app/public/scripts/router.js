@@ -63,10 +63,11 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		
 		uploader: function(){
 			"use strict";
+			console.log('here');
 			$(".app").append('<div class="loading"></div>');
-			var uploadView = new uploadPanelView();
+			var uploadView = new uploadPanelView({collection: this.collection});
 			var view = new photoCollectionView({collection: this.collection});
-			this._renderView(view);  
+			view.renderB();  
 		}
 	});
 	return photoRouter;

@@ -3,6 +3,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	    initialize: function(){
 	        //When the collection reset function is called call on the render method
 	    	this.listenTo(this.collection, "reset", this.render);
+	    	this.listenTo(this.collection, "add", this.tester);
 	 	},
 	 	setUpRows: function(){
 	 	 //TODO: Move render logic into here.
@@ -55,6 +56,13 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 		 			counter++;			
 	 			}, self);
 	 		
+	 	},
+
+	 	tester: function(photo){
+	 		console.log("this data is returned from the add function");
+	 		var photoV = new photoView({model: photo})
+	 		var lastRow = $('.illRow:last');
+	 		lastRow.append(photoV.render().el);
 	 	}
 	});
 	return photoCollectionView;

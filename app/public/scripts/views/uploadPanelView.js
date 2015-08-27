@@ -1,18 +1,35 @@
 define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
 	var uploadPanelView = Backbone.View.extend({
 		
+        el: "#panelUpload",
+
 		initialize: function(){
-    		this.setUpForm();
-    		$(".uploadbutton").click(function(e){
-    			if($(".preview").children().length < 1){	
-    				e.preventDefault();
-    				$('.status').text("Please select a file before uploading");
-    			}			
-    		});		
+    		this.setUpForm();	
  		},
+
+        events: {
+            "click .uploadbutton": "testy"
+        },
+
+        testy: function(e){
+            e.preventDefault();
+            var imageData = JSON.parse($('.hiddenUpload').val());
+            this.collection.create({
+                image: imageData  },{
+                error: function(model, response){
+
+                },
+                success: function(model, response){
+                    //console.log("this data was returned by the create function ");
+                    //console.log(model.attributes);
+                    $(".preview").html('');
+                }    
+
+            });
+        },
  		
  		setUpForm: function() {
- 			console.log("what the fuck");
+ 			
  			$.cloudinary.config({
  				"api_key": "932255541789328",
  				"cloud_name": "dzx1ez426"

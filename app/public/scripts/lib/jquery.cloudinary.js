@@ -895,7 +895,7 @@
           var upload_info = [data.result.resource_type, data.result.type, data.result.path].join("/") + "#" + data.result.signature;
           var multiple = $(e.target).prop("multiple");
           var add_field = function() {
-            $('<input/>').attr({type: "hidden", name: data.cloudinaryField}).val(JSON.stringify(data.result)).appendTo(data.form);
+            $('<input/>').attr({type: "hidden", name: data.cloudinaryField}).val(JSON.stringify(data.result)).addClass('hiddenUpload').appendTo(data.form);
           };
 
           if (multiple) {
