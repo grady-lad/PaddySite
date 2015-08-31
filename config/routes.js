@@ -40,11 +40,11 @@ module.exports = function (app, passport) {
     } else {
         res.redirect('/login');
     }
-  }
+  };
   //=====================
   // Control Panel Routes
   //======================
-  app.get("/imagepanel" ,  uploader.displayPanel); 
+  app.get("/imagepanel" , loggedIn, uploader.displayPanel); 
   app.post("/gallery" , uploader.upload);
   app.delete("/gallery/:id" , uploader.remove);
 

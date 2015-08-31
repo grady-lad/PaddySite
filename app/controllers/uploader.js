@@ -4,7 +4,7 @@ var Photo  = require('../models/photos');
 var cloudinary = require('cloudinary');
 
 exports.displayPanel = function (req, res) {
-	isLoggedIn(req, res);
+
 	Photo.find(function(err, photos) {
 		if (err){
 			console.error("finding error " + err);
