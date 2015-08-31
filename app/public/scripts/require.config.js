@@ -6,10 +6,6 @@ require.config({
     underscore: 'lib/underscore',
     handlebars: 'lib/handlebars',
     bootstrap: 'lib/bootstrap.min',
-    jqueryUI: 'lib/jquery.ui.widget',
-    jqueryIframe: 'lib/jquery.iframe-transport',
-    jqueryFileupload: 'lib/jquery.fileupload',
-    jqueryCloudinary: 'lib/jquery.cloudinary',
     helper: 'lib/custom/helper'
   },
   shim: {
@@ -25,11 +21,8 @@ require.config({
     },
     bootstrap:{
     	deps :['jquery']
-    },
-    jqueryCloudinary: {
-    	exports: 'cloudinary'
     }
   },
 });
 
-require(["init", "jquery", "bootstrap", "jqueryCloudinary", "helper"]);
+require(["jquery", "bootstrap", "helper"]);

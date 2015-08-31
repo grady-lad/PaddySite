@@ -1,5 +1,5 @@
 extends ../uploaderLayout
-block content
+block backbone
   if errors
     p Error Error
   #intialContent
@@ -21,4 +21,6 @@ block content
            <img class="img-responsive img-fade" src="{{image.url}}" height = "300" width="300"/>
            <input type="hidden" value="{{image.public_id}}" name="imgId"/>
            <input class="remove" type="submit" value="Remove"/>
-           </div>               
+           </div>
+  script.
+    requirejs(['init'])             

@@ -1,4 +1,4 @@
-define(["backbone", "events", "collections/photo", "views/photoCollection", "views/uploadPanelView", "views/singleDetailView", "jqueryCloudinary"], function(Backbone, Events, photoCollection, photoCollectionView, uploadPanelView, singleDetailView, cloudinary) {
+define(["backbone", "events", "collections/photo", "views/photoCollection", "views/uploadPanelView", "views/singleDetailView"], function(Backbone, Events, photoCollection, photoCollectionView, uploadPanelView, singleDetailView) {
 	var photoRouter = Backbone.Router.extend({
 		initialize: function() {
 			var self = this;
@@ -60,6 +60,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		},
 		
 		uploader: function(){
+			console.log('the fuck were in here');
 			var uploadView = new uploadPanelView({collection: this.collection});
 			var view = new photoCollectionView({collection: this.collection});
 			view.renderB();  

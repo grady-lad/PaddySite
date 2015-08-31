@@ -1,5 +1,7 @@
 extends ../layout
-block content
+block backbone
+  script.
+    requirejs(['init']);
   div#intialContent
     = photos
   div.app

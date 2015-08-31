@@ -1,4 +1,4 @@
-define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
+define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backbone, $, Events, cloudinary) {
 	var uploadPanelView = Backbone.View.extend({
 		
         el: "#panelUpload",
