@@ -39,15 +39,17 @@ exports.upload = function (req, res) {
 };
 
 exports.remove = function (req, res) {	
-	var public_id = req.body.imgId;
-	Photo.findOneAndRemove({'image.public_id' : public_id  }
+	var public_id = req.params.id;
+	Photo.findOneAndRemove({'_id' : public_id  }
 		 ,function(err, photo) {
 			 if(err){
 				 console.log("Removing Error \n" +err);
 				 res.render("imageuplader/upload", {errors: err});
-			 }
-	    cloudinary.api.delete_resources([''],
-        function(result){console.log(result);});    
+			 }else{
+			 	cloudinary.api.delete_resources(photo.image.public_id,
+        		function(result){console.log(result);});
+        		return res.send(photo); 
+			 }   
 	});
-	res.redirect('/imagepanel');
+	//res.redirect('/imagepanel');
 };

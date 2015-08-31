@@ -18,7 +18,6 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
                 $('.status').text("Pick a photo to upload ya dope");
             }else{
                imageData = JSON.parse($('.hiddenUpload').val());
-            
                 this.collection.create({
                     image: imageData  },{
                     error: function(model, response){

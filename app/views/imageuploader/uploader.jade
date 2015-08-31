@@ -19,8 +19,6 @@ block content
          script(id = "illustrationTemplate", type = "text/x-handlebars")
            <div class="col-md-4 remove-image">
            <img class="img-responsive img-fade" src="{{image.url}}" height = "300" width="300"/>
-           <form action="/removeImage" method="POST" enctype="multipart/form-data">
            <input type="hidden" value="{{image.public_id}}" name="imgId"/>
            <input class="remove" type="submit" value="Remove"/>
-           </form>
            </div>               

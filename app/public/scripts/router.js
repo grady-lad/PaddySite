@@ -14,12 +14,12 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	    	"imagepanel": "uploader"
 	    },
 	    _setupCollection: function() {
-	    	
-			if(this.collection){return this.collection;} 
 			var data = $("#intialContent").html();
-			if(data !== undefined){
-			this.collection = new photoCollection(JSON.parse(data));
+			if(data !== '[]'){
+				$(".app").append('<div class="loading"></div>');
 			}
+			this.collection = new photoCollection(JSON.parse(data));
+			return this.collection;
 		},
 		
 		_renderView: function(view) {
@@ -33,9 +33,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		//Gets the illustration gallery photos from the db creates the view and 
 		// renders anything with .app div. 
 		illustration: function() {
-			var counter = 0;
 			$('.app').html('');
-			$(".app").append('<div class="loading"></div>');
 			var view = new photoCollectionView({collection: this.collection});
 			view.renderB();
 			
@@ -62,9 +60,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 		},
 		
 		uploader: function(){
-			"use strict";
-			console.log('here');
-			$(".app").append('<div class="loading"></div>');
 			var uploadView = new uploadPanelView({collection: this.collection});
 			var view = new photoCollectionView({collection: this.collection});
 			view.renderB();  
