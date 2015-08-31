@@ -13,19 +13,23 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
 
         testy: function(e){
             e.preventDefault();
-            var imageData = JSON.parse($('.hiddenUpload').val());
-            this.collection.create({
-                image: imageData  },{
-                error: function(model, response){
+            var imageData;
+            if(!$('.hiddenUpload').val()){
+                $('.status').text("Pick a photo to upload ya dope");
+            }else{
+               imageData = JSON.parse($('.hiddenUpload').val());
+            
+                this.collection.create({
+                    image: imageData  },{
+                    error: function(model, response){
+                        $('.status').text("Could not upload image ?");
+                    },
+                    success: function(model, response){
+                        $(".preview").html('');
+                    }    
 
-                },
-                success: function(model, response){
-                    //console.log("this data was returned by the create function ");
-                    //console.log(model.attributes);
-                    $(".preview").html('');
-                }    
-
-            });
+                });
+            }
         },
  		
  		setUpForm: function() {
@@ -70,6 +74,7 @@ define(["backbone", "jquery", "events"], function(Backbone, $, Events) {
  						$('.preview').html('');
  						$('#info').html('');
  						$("#photo_bytes").val('');
+                        $('.hiddenUpload').remove();
  						$('input[name="photo[image]"]').remove();
  					}).fail(function() {
  						$('.status').text("Cannot delete image");

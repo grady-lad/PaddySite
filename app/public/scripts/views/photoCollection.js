@@ -59,7 +59,6 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 	},
 
 	 	tester: function(photo){
-	 		console.log("this data is returned from the add function");
 	 		var photoV = new photoView({model: photo})
 	 		var lastRow = $('.illRow:last');
 	 		lastRow.append(photoV.render().el);
