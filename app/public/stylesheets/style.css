@@ -282,6 +282,9 @@ highlight a {
 .img-centre {
   margin: 0 auto;
 }
+.singleIll {
+  position: relative;
+}
 .centre-links {
   margin-top: 20px;
   text-align: center;
@@ -306,7 +309,7 @@ highlight a {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url("../images/ajax-loader.gif") 50% 50% no-repeat;
+  background: url("../images/loading.gif") 50% 50% no-repeat;
 }
 .centerIll {
   width: 300px;

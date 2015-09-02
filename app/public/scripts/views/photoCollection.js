@@ -28,7 +28,6 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 		 			var photoV = new photoView({model: photo});
 		 			row.append(photoV.render().el);
 		 			$('.loading').hide();
-		 			//$(".img-fade").animate({ opacity: 1}, 2000);
 		 			counter++;			
 	 			}, self);
 	 		}

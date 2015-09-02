@@ -54,7 +54,8 @@ define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backb
  					format: data.result.format,
  					width: 200,
  					height: 200,
- 					crop: "fit"
+ 					crop: "fill",
+                    gravity: 'south_east'
  				}).appendTo(preview);
 
  				$('<a>').

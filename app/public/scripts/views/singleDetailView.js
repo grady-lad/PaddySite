@@ -15,26 +15,22 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		    return this;
 		},
 		
-		switchUrl: function(urlId){
-			var id = this.model.get(urlId);
-			if(id !== undefined){
-				var url = "photo?id=" + id;
-		    	Events.trigger("router:navigate", url);
-		    }
-		},
-
 		calcDirection: function(e){
 			e.preventDefault();
-			var offset = $(".singleIll").offset(); 
+			var current = $('.singleIll');
+			var offset = current.offset(); 
        		var pos_x = e.pageX - offset.left;
-       		var middle = $(".singleIll").outerWidth() / 2;
-       		if(pos_x < middle){
-           		this.switchUrl('prevUrl');
-       		}
-       		else
-       		{
-            	this.switchUrl("nextUrl");
-       		}
+       		var middle = current.outerWidth() / 2;
+       		pos_x < middle ? this.showNext('-300px' , 'prevUrl') : this.showNext('300px' , 'nextUrl');
+       	},
+
+       	showNext: function(pos, urlId){
+       		var id = this.model.get(urlId);
+       		if(id === undefined ){return;};
+       		$('.singleIll').animate({left: pos, opacity: '0'}, function(){
+				var url = "photo?id=" + id;
+		    	Events.trigger("router:navigate", url);
+       		});
        	}
 	});
 	return singleDetailView;
