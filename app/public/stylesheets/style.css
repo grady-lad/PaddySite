@@ -295,12 +295,6 @@ highlight a {
 .illRow {
   margin-top: 20px;
 }
-.multipleIllHolder {
-  position: relative;
-  height: 300px;
-  width: 100%;
-  overflow: hidden;
-}
 .loading {
   position: fixed;
   opacity: 0.1px;
@@ -319,14 +313,16 @@ highlight a {
   overflow: hidden;
 }
 !important
-.multipleIll {
-  height: 400px !important;
-  width: 300px !important;
-  overflow: hidden;
-}
 .uploader-panel {
   border: 4px solid #eee;
 }
 .uploadbutton {
   margin-top: 10px;
+}
+.left-arrow {
+  float: left;
+}
+.right-arrow {
+  float: right;
+  margin-top: 160px;
 }

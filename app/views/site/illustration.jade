@@ -4,7 +4,7 @@ block backbone
     requirejs(['init']);
   div#intialContent
     = photos
-  div.app
+  div.app.container
     .loading
   script(id = "illustrationTemplate", type = "text/x-handlebars")
     if photos
@@ -16,7 +16,7 @@ block backbone
     
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
     <div class = "col-md-12">
-    <img class="img-responsive img-fade img-centre singleIll" height ="550" width="400" src="{{image.url}}"</img>
+    <img class="img-responsive img-fade img-centre singleIll" src="{{image.url}}"</img>
     </div>
     </div>
     </div>   
