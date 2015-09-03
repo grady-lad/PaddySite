@@ -55,11 +55,12 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 	
 			var view = new singleDetailView({model: singleIllustration});
 			this.renderViewIll(view);
-	
+			$('.img-centre').bind('load', function(){
+				$(this).fadeTo('slow' , 1);
+			});
 		},
 		
 		uploader: function(){
-			console.log('the fuck were in here');
 			var uploadView = new uploadPanelView({collection: this.collection});
 			var view = new photoCollectionView({collection: this.collection});
 			view.renderB();  

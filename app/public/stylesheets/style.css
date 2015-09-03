@@ -289,39 +289,10 @@ highlight a {
 }
 .img-centre {
   margin: 0 auto;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: fadein 2s;
-  -moz-animation: fadein 2s;
-  -o-animation: fadein 2s;
-  -ms-animation: fadein 2s;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
-  -webkit-animation: fadein 2s;
-  -o-animation: fadein 2s;
+  opacity: 0;
 }
-@-moz-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.pissed {
+  opacity: 1;
 }
 .singleIll {
   position: relative;
@@ -371,36 +342,4 @@ highlight a {
   display: inline;
   right: 60px;
   position: fixed;
-}
-@-moz-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
