@@ -22,12 +22,16 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		if(self.collection){
 	 			self.collection.each(function(photo){
 	 				var photoV = new photoView({model: photo});
+	 				var id = '#' + photo.attributes.image.public_id
 	 				if(counter == 0 ||counter % 3 == 0){
 		 				row = self.setUpNewRow();
 		 			}
 		 			var photoV = new photoView({model: photo});
 		 			row.append(photoV.render().el);
 		 			$('.loading').hide();
+		 			$(id).bind('load', function(){
+						$(this).fadeTo('slow' , 1);
+					});
 		 			counter++;			
 	 			}, self);
 	 		}
