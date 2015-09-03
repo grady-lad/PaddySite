@@ -1,11 +1,10 @@
 define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handlebars, $, Events) {
 	var singleDetailView = Backbone.View.extend({
+	
 		events: {
-		"click .nextIll": "nextIllView",
-		"click .prevIll": "prevIllView",
-		"click .singleIll": "calcDirection"
+		"click .singleHolder": "calcDirection"
 		},
-		
+
         render: function() {
 			"use strict";
 		    var template = $("#singleIllustrationTemplate").html();
@@ -17,7 +16,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		
 		calcDirection: function(e){
 			e.preventDefault();
-			var current = $('.singleIll');
+			var current = $('.singleHolder');
 			var offset = current.offset(); 
        		var pos_x = e.pageX - offset.left;
        		var middle = current.outerWidth() / 2;
@@ -26,7 +25,12 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 
        	showNext: function(pos, urlId){
        		var id = this.model.get(urlId);
-       		if(id === undefined ){return;};
+       		var hide;
+       		if(id === undefined ){
+       			hide = document.getElementById(urlId);
+       			
+       			return;
+       		};
        		$('.singleIll').animate({left: pos, opacity: '0'}, function(){
 				var url = "photo?id=" + id;
 		    	Events.trigger("router:navigate", url);

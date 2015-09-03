@@ -16,6 +16,12 @@ body
   #wrapper
     margin-top 40%
 
+@media (max-width: 725px)
+  .nextUrl
+    opacity 0
+  .prevUrl
+    opacity 0
+
 /* submission-form.jade */
 #feedback
   margin-top 50px
@@ -98,7 +104,35 @@ highlight a
     
 .img-centre
    margin 0 auto
+   animation fadein 2s
+   -moz-animation fadein 2s
+   -webkit-animation fadein 2s
+   -o-animation fadein 2s
 
+@keyframes fadein
+    from 
+        opacity:0;
+    to 
+        opacity:1;
+    
+@-moz-keyframes fadein
+  from
+    opacity 0 
+  to
+    opacity 1
+    
+@-webkit-keyframes fadein
+  from
+    opacity 0
+  to 
+    opacity 1
+
+@-o-keyframes fadein
+  from
+    opacity 0  
+  to
+    opacity 1
+  
 .singleIll
   position relative
  
@@ -134,11 +168,15 @@ highlight a
 .uploadbutton
   margin-top 10px
 
-.left-arrow
-  float left
-
-.right-arrow
-  float right
-  margin-top 160px
-
+.prevUrl
+  top 40%
+  display inline
+  left 60px
+  position fixed
   
+
+.nextUrl
+  top 40%
+  display inline
+  right 60px
+  position fixed

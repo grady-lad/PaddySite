@@ -15,9 +15,17 @@ block backbone
     </div>
     
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
-    <div class = "col-md-12">
-    <img class="img-responsive img-fade img-centre singleIll" height ="550" width="400" src="{{image.url}}"</img>
+    <div class = "col-md-12 singleHolder">
+    <img class="img-responsive img-fade img-centre singleIll" height ="550" width="400"src="{{image.url}}"/>
+    {{#if prevUrl}}
+    <div class="prevUrl">
+    <img class="img-responsive" src="images/Gallery-Arrow-left.png"/>
     </div>
+    {{/if}}
+    {{#if nextUrl}}
+    <div class="nextUrl">
+    <img class="img-responsive"src="images/Gallery-Arrow-Right.png"/>
     </div>
-    </div>   
+    {{/if}}
+    </div> 
   
