@@ -183,11 +183,8 @@ td,
 th {
   padding: 0;
 }
-body {
-  font-family: "Arial" !important;
-}
 #wrapper {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 @media (max-width: 320px) {
   #wrapper {
@@ -217,10 +214,16 @@ body {
 #submit_button {
   margin-top: 10px;
 }
-@media (min-width: 790px) {
+@media (min-width: 994px) {
   #contactsuggestion,
   #contactemail {
     width: 200%;
+  }
+}
+@media (max-width: 990px) {
+  #contactsuggestion,
+  #contactemail {
+    width: 100%;
   }
 }
 @media (min-width: 790px) {
@@ -231,18 +234,17 @@ body {
 }
 #errorMessage {
   z-index: -10;
-  color: #e81518;
   margin-top: 10px;
   font-weight: 200;
   margin-left: 3%;
+  color: #e81518;
 }
 #successMessage {
   z-index: -10;
-  color: #15e8a2;
   margin-top: 10px;
   font-weight: 200;
-  width: 200px;
   margin-left: 3%;
+  color: #15e8a2;
 }
 .app {
   min-height: 300px;
@@ -266,10 +268,7 @@ body {
 .lil-extra {
   margin-left: 20px;
 }
-highlight {
-  color: #ff3c77;
-}
-highlight a {
+highlight highlight a {
   color: #ff3c77;
 }
 .logo_and_navbar {
@@ -291,15 +290,8 @@ highlight a {
   margin: 0 auto;
   opacity: 0;
 }
-.pissed {
-  opacity: 1;
-}
 .singleIll {
   position: relative;
-}
-.centre-links {
-  margin-top: 20px;
-  text-align: center;
 }
 .cloudinary_fileupload {
   color: transparent;
@@ -329,15 +321,15 @@ highlight a {
   margin-top: 10px;
 }
 .prevUrl {
+  left: 50px;
   top: 40%;
   display: inline;
-  left: 60px;
   position: fixed;
 }
 .nextUrl {
+  right: 60px;
   top: 40%;
   display: inline;
-  right: 60px;
   position: fixed;
 }
 .multipleIll {
