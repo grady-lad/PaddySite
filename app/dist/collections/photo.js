@@ -1,0 +1,1 @@
+define(["backbone","models/photo"],function(e,t){return e.Collection.extend({model:t,url:"/gallery",getPrevUrl:function(e){return e>=1?this.at(e-1).get("_id"):undefined},getNextUrl:function(e){return e+1!==this.length?this.at(e+1).get("_id"):undefined}})});
