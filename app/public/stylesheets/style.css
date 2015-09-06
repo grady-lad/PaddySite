@@ -290,8 +290,14 @@ highlight highlight a {
   margin: 0 auto;
   opacity: 0;
 }
+.singleHolder {
+  height: 700px;
+  width: 500px;
+}
 .singleIll {
   position: relative;
+  max-width: 100%;
+  max-height: 100%;
 }
 .cloudinary_fileupload {
   color: transparent;
