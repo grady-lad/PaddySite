@@ -1,1 +1,0 @@
-define([],function(){try{var e=location.href.split("/").pop();(e==="gallery"||"blog"||"contact"||"about")&&document.getElementById(e).setAttribute("class","active")}catch(t){}});

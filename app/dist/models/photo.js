@@ -1,1 +1,0 @@
-define(["backbone"],function(e){return e.Model.extend({idAttribute:"_id",imageAttribute:"image"})});
