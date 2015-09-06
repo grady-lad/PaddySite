@@ -18,7 +18,7 @@ gulp.task('lint', function() {
 gulp.task('copyFonts' , function(){
   return gulp.src('./app/public/custom-fonts/**/*.{ttf,eot,woff,svg,woff2}')
          .pipe(rename({dirname: ''}))
-         .pipe(gulp.dest('.app/dist/css'))
+         .pipe(gulp.dest('./app/dist/css'))
 });
 
 gulp.task('css', function(){
