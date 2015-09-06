@@ -23,6 +23,9 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 			self.collection.each(function(photo){
 	 				var photoV = new photoView({model: photo});
 	 				var id = '#' + photo.attributes.image.public_id
+	 				var url = photo.attributes.image.url;
+	 				var point = url.indexOf('upload');
+	 				photo.attributes.image.url = url.slice(0 , (point+6)) + '/h_400' + url.slice(point + 6);
 	 				if(counter == 0 ||counter % 3 == 0){
 		 				row = self.setUpNewRow();
 		 			}
