@@ -4,11 +4,8 @@ normalize-css()
  //html *
   //b()
 
-body
-  font-family "Arial" !important
-
 #wrapper
-  margin-top 10px
+  margin-top 50px
 
 // when viewing through iphone stuff
 // get vertical center (well, kinda)
@@ -37,31 +34,35 @@ body
 #submit_button
   margin-top 10px
 
-@media (min-width: 790px)
+@media (min-width: 994px)
   #contactsuggestion, #contactemail
     width 200%
+
+@media (max-width: 990px)
+  #contactsuggestion, #contactemail
+    width 100%
     
 @media (min-width: 790px)
   #loginsuggestion, #loginemail
     width 100%
 
-#errorMessage
+messageLayout()
   z-index -10
-  color #E81518
   margin-top 10px
   font-weight 200
   margin-left 3%
 
+#errorMessage
+  messageLayout()
+  color #E81518
+
 #successMessage
-  z-index -10
+  messageLayout()
   color #15E8A2
-  margin-top 10px
-  font-weight 200
-  width 200px
-  margin-left 3%
  
 .app
   min-height 300px
+
 .about-text
    font-family apple_regular
 
@@ -81,17 +82,14 @@ body
 .lil-extra
   margin-left 20px
 
-highlight
+highlight highlight a
   color #FF3C77	
-  
-highlight a
-  color #FF3C77
   
 .logo_and_navbar
   margin-top 25px
 
 .nav-logo
-  margin-top -16px !important
+  margin-top -15px !important
 
 .footer
    padding-top 100px
@@ -99,23 +97,16 @@ highlight a
 .footer p
    float right     
 
-  #intialContent
-    display none
+#intialContent
+  display none
     
 .img-centre
    margin 0 auto
    opacity 0
 
-.pissed
-  opacity 1
-
 .singleIll
   position relative
  
- .centre-links
-   margin-top 20px
-   text-align center
-
 .cloudinary_fileupload
   color transparent
 
@@ -143,18 +134,20 @@ highlight a
 .uploadbutton
   margin-top 10px
 
-.prevUrl
+//Arrow mixin
+arrowNav()
   top 40%
   display inline
-  left 60px
   position fixed
   
-
+.prevUrl
+  left 50px
+  arrowNav()
+  
 .nextUrl
-  top 40%
-  display inline
   right 60px
-  position fixed
+  arrowNav()
 
 .multipleIll
   opacity 0
+
