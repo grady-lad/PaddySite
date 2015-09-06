@@ -1,4 +1,4 @@
-define(["backbone", "events", "collections/photo", "views/photoCollection", "views/uploadPanelView", "views/singleDetailView"], function(Backbone, Events, photoCollection, photoCollectionView, uploadPanelView, singleDetailView) {
+define(["backbone", "events", "collections/photo", "views/photoCollection"], function(Backbone, Events, photoCollection, photoCollectionView) {
 	var photoRouter = Backbone.Router.extend({
 		initialize: function() {
 			var self = this;
@@ -49,19 +49,24 @@ define(["backbone", "events", "collections/photo", "views/photoCollection", "vie
 			var currentIndex = this.collection.indexOf(singleIllustration);
 			var prevLink = this.collection.getPrevUrl(currentIndex);
 			var nextLink = this.collection.getNextUrl(currentIndex);
-			
+			var self=this;
 			singleIllustration.set({nextUrl: nextLink});
 			singleIllustration.set({prevUrl: prevLink});
-	
-			var view = new singleDetailView({model: singleIllustration});
-			this.renderViewIll(view);
-			$('.img-centre').bind('load', function(){
-				$(this).fadeTo('slow' , 1);
+			require(['views/singleDetailView'] , function(singleDetailView){
+				var view = new singleDetailView({model: singleIllustration});
+				self.renderViewIll(view);
+				$('.img-centre').bind('load', function(){
+					$(this).fadeTo('slow' , 1);
+				});
 			});
+			
 		},
 		
 		uploader: function(){
-			var uploadView = new uploadPanelView({collection: this.collection});
+			var self = this;
+			require(['views/uploadPanelView'] , function(uploadPanelView){
+				var uploadView = new uploadPanelView({collection: self.collection});
+			});
 			var view = new photoCollectionView({collection: this.collection});
 			view.renderB();  
 		}

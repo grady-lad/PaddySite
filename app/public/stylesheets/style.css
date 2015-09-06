@@ -318,13 +318,10 @@ highlight a {
   background: url("../images/loading.gif") 50% 50% no-repeat;
 }
 .centerIll {
-  width: 300px;
-!important
   height: 400px;
   max-height: 400px;
   overflow: hidden;
 }
-!important
 .uploader-panel {
   border: 4px solid #eee;
 }

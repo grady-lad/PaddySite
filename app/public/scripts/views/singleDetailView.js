@@ -1,4 +1,4 @@
-define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handlebars, $, Events) {
+define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Events) {
 	var singleDetailView = Backbone.View.extend({
 	
 		events: {
