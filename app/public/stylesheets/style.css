@@ -317,7 +317,6 @@ highlight highlight a {
 }
 .centerIll {
   height: 400px;
-  max-height: 400px;
   overflow: hidden;
 }
 .uploader-panel {
@@ -340,4 +339,6 @@ highlight highlight a {
 }
 .multipleIll {
   opacity: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
