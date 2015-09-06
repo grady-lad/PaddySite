@@ -55,7 +55,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 			require(['views/singleDetailView'] , function(singleDetailView){
 				var view = new singleDetailView({model: singleIllustration});
 				self.renderViewIll(view);
-				$('.img-centre').bind('load', function(){
+				$('.singleIll').bind('load', function(){
 					$(this).fadeTo('slow' , 1);
 				});
 			});

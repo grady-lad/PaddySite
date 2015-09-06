@@ -286,10 +286,6 @@ highlight highlight a {
 #intialContent {
   display: none;
 }
-.img-centre {
-  margin: 0 auto;
-  opacity: 0;
-}
 .singleHolder {
   height: 700px;
 }
@@ -340,4 +336,6 @@ highlight highlight a {
   position: relative;
   max-width: 100%;
   max-height: 100%;
+  margin: 0 auto;
+  opacity: 0;
 }
