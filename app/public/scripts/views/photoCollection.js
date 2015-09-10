@@ -22,7 +22,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		if(self.collection){
 	 			self.collection.each(function(photo){
 	 				var photoV = new photoView({model: photo}),
-	 					id = '#' + photo.attributes.image.public_id,
+	 					id =  '#' + photo.attributes.image.public_id,
 	 					url = photo.attributes.image.url,
 	 					point = url.indexOf('upload');
 	 				
@@ -35,12 +35,15 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 		 			}
 		 			var photoV = new photoView({model: photo});
 		 			row.append(photoV.render().el);
-		 			$('.loading').hide();
 		 			$(id).bind('load', function(){
-						$(this).fadeTo('slow' , 1);
+		 				//Need to add a class rather then fadeTo
+						//$(this).fadeTo('slow' , 1);
+						$(this).addClass("fadeIn");
 					});
 		 			counter++;			
-	 			}, self);
+	 			}, self , function(){
+	 				document.getElementsByClassName('loading').style.display = 'none';
+	 			});
 	 		}
 	 	},
 
