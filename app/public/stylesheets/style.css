@@ -199,6 +199,14 @@ th {
     opacity: 0;
   }
 }
+@media (max-width: 500px) {
+  .singleHolder {
+    height: 300px !important;
+  }
+  #social {
+    display: inline;
+  }
+}
 /* submission-form.jade */
 #feedback {
   margin-top: 50px;
@@ -278,20 +286,25 @@ highlight highlight a {
   margin-top: -15px !important;
 }
 .footer {
-  padding-top: 100px;
-}
-.footer p {
+  padding-top: 3%;
   float: right;
+  font-family: apple_regular;
+  font-size: 10px;
+}
+#social {
+  margin-left: 150px;
+  padding-bottom: 5%;
+}
+#social a {
+  display: inline-block;
+  width: 33%;
+  padding: 5px;
 }
 #intialContent {
   display: none;
 }
-.img-centre {
-  margin: 0 auto;
-  opacity: 0;
-}
 .singleHolder {
-  height: 700px;
+  height: 600px;
 }
 .cloudinary_fileupload {
   color: transparent;
@@ -340,4 +353,12 @@ highlight highlight a {
   position: relative;
   max-width: 100%;
   max-height: 100%;
+  margin: 0 auto;
+  opacity: 0;
+}
+.fadeIn {
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+  opacity: 1;
 }

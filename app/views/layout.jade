@@ -2,7 +2,10 @@ doctype
 html
   head
     title Paddy Walsh Illustration - #{title}
-    link(rel='stylesheet', href='/css/style.min.css')
+    link(rel='stylesheet', href='/custom-fonts/apple/stylesheet.css')
+    link(rel='stylesheet', href='/custom-fonts/super-effective/stylesheet.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     meta(name='viewport', content='width=device-width', initial-scale='1')
     .row.logo_and_navbar
       .col-md-12
@@ -31,9 +34,16 @@ html
       #wrapper
         #switch-content
           block content
-          script(src='/lib/require.js', data-main='require.config.js')
+          script(src='/scripts/lib/require.js', data-main='/scripts/require.config.js')
           block backbone
      .container
-       .row
-         .footer
-           p.Super-Effective Copywrite @ Paddhuiy Illustration 2015
+       .footer
+         .row#social
+           a(href ="http://paddhuiy.tumblr.com")
+             img.img-responisve(src="https://s3-eu-west-1.amazonaws.com/paddystaging/TumblrBadge.png")
+           a(href ="https://twitter.com/paddhuiy")
+             img.img-responisve(src="https://s3-eu-west-1.amazonaws.com/paddystaging/InstaBadge.png")
+           a(href ="https://instagram.com/paddhuiy/")
+             img.img-responisve(src="https://s3-eu-west-1.amazonaws.com/paddystaging/TwitterBadge.png")
+         .row
+             p.Super-Effective Copywrite @ Paddhuiy Illustration 2015

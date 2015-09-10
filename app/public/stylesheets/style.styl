@@ -19,6 +19,13 @@ normalize-css()
   .prevUrl
     opacity 0
 
+@media (max-width: 500px)
+ .singleHolder
+   height 300px !important
+
+ #social
+   display inline
+
 /* submission-form.jade */
 #feedback
   margin-top 50px
@@ -91,21 +98,26 @@ highlight highlight a
 .nav-logo
   margin-top -15px !important
 
-.footer
-   padding-top 100px
+.footer 
+   padding-top 3%
+   float right   
+   font-family apple_regular
+   font-size 10px
 
-.footer p
-   float right     
+#social
+ margin-left 150px
+ padding-bottom 5%
+
+#social a
+ display inline-block
+ width 33%
+ padding 5px
 
 #intialContent
   display none
-    
-.img-centre
-   margin 0 auto
-   opacity 0
 
 .singleHolder
-  height 700px
+  height 600px
  
 .cloudinary_fileupload
   color transparent
@@ -158,4 +170,11 @@ maxImage()
 .singleIll
   position relative
   maxImage()
+  margin 0 auto
+  opacity 0
 
+.fadeIn
+  -webkit-transition opacity 1.0s ease-in
+  -moz-transition opacity 1.0s ease-in
+  -o-transition opacity 1.0s ease-in
+  opacity 1;
