@@ -21,6 +21,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		 	counter = 0,
 	 			row;
 	 		if(self.collection){
+
 	 		  self.collection.each(function(photo){
 	 				var id =  '#' + photo.attributes.image.public_id,
 	 					  url = photo.attributes.image.url,
