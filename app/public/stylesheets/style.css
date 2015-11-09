@@ -221,6 +221,16 @@ th {
 }
 #submit_button {
   margin-top: 10px;
+  position: relative;
+  margin-left: 360px;
+  border: 1px solid #222;
+  width: 60%;
+  font-family: apple_regular;
+}
+#contactsuggestion,
+#contactemail {
+  border: 1px solid #222;
+  font-family: apple_regular;
 }
 @media (min-width: 994px) {
   #contactsuggestion,
@@ -263,7 +273,7 @@ th {
 .nav-text {
   font-family: Super-Effective;
   color: #ff3c77;
-  font-size: 28px;
+  font-size: 24px;
 }
 .upload-nav-text {
   font-size: 36px;
@@ -276,7 +286,11 @@ th {
 .lil-extra {
   margin-left: 20px;
 }
-highlight highlight a {
+highlight {
+  color: #ff3c77;
+}
+highlight a {
+  text-decoration: none;
   color: #ff3c77;
 }
 .logo_and_navbar {

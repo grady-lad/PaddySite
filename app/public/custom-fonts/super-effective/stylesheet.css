@@ -5,6 +5,7 @@
   font-family: 'Super-Effective';
   src: url('super_effective.eot');
   src: url('super_effective.eot?#iefix') format('embedded-opentype'),
+       url('super_effective.woff2') format('woff2'),
        url('super_effective.woff') format('woff'),
        url('super_effective.ttf') format('truetype'),
        url('super_effective.svg#Super-Effective') format('svg');

@@ -20,7 +20,7 @@ define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Even
 			var offset = current.offset(); 
       var pos_x = e.pageX - offset.left;
       var middle = current.outerWidth() / 2;
-      pos_x < middle ? this.showNext('-300px' , 'prevUrl') : this.showNext('300px' , 'nextUrl');
+      pos_x < middle ? this.showNext('300px' , 'prevUrl') : this.showNext('-300px' , 'nextUrl');
     },
 
     showNext: function(pos, urlId){
