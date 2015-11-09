@@ -22,25 +22,27 @@ module.exports = function (app, passport) {
   app.get("/login", users.login);
   app.get("/signup", users.signup);
   app.get("/logout", users.logout); 
+  
   app.post("/signup", passport.authenticate('local-signup', {
-      successRedirect : '/imagepanel', // redirect to the secure profile section
-      failureRedirect : '/signup', // redirect back to the signup page if there is an error
-      failureFlash : true // allow flash messages
+    successRedirect : '/imagepanel', // redirect to the secure profile section
+    failureRedirect : '/signup', // redirect back to the signup if error
+    failureFlash : true // allow flash messages
   }));
+  
   app.post('/login', passport.authenticate('local-login', {
-      successRedirect : '/imagepanel', // redirect to the secure profile section
-      failureRedirect : '/login', // redirect back to the signup page if there is an error
-      failureFlash : true // allow flash messages
+    successRedirect : '/imagepanel', // redirect to the secure profile section
+    failureRedirect : '/login', // redirect back to the signup page if error
+    failureFlash : true // allow flash messages
   }));
   
   //Authenticating user when using the image uploader
   function loggedIn(req, res, next) {
-    if (req.user) {
-        next();
+    if(req.user){
+      next();
     } else {
-        res.redirect('/login');
+      res.redirect('/login');
     }
-  };
+  }
   //=====================
   // Control Panel Routes
   //======================
@@ -56,10 +58,10 @@ module.exports = function (app, passport) {
     if (err.message && (err.message.indexOf('not found') || (err.message.indexOf('Cast to ObjectId failed')))) {
     	return next();
     }
-      console.error(err.stack);
-      // error page
-      res.status(500).render('errors/notFound', { error: err.stack });
-    });
+    console.error(err.stack);
+    // error page
+    res.status(500).render('errors/notFound', { error: err.stack });
+  });
 
   // assume 404 since no middleware responded
   app.use(function (req, res, next) {
@@ -69,5 +71,4 @@ module.exports = function (app, passport) {
       error: 'Not found'
     });
   });
-
 };

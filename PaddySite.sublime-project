@@ -1,0 +1,24 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"SublimeLinter":
+    {
+        "linters":
+        {
+            "jshint": {
+                "excludes": [
+                    "*/test/**"
+                ],
+                "ignore": "W"
+            },
+
+            "eslint": {
+            	"@disbale": true
+            }
+        }
+    }
+}

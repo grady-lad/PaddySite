@@ -1,12 +1,13 @@
 define(["backbone", "views/photo"], function(Backbone, photoView) {
 	var photoCollectionView = Backbone.View.extend({
-	    initialize: function(){
-	        //When the collection reset function is called call on the render method
-	    	this.listenTo(this.collection, "reset", this.render);
-	    	this.listenTo(this.collection, "add", this.tester);
+	  initialize: function(){
+	    //When the collection reset function is called call on the render method
+	    this.listenTo(this.collection, "reset", this.render);
+	    this.listenTo(this.collection, "add", this.tester);
 	 	},
+
 	 	setUpNewRow: function(){
-	 		var row = $('<div class="row illRow"></div>');
+	 	  var row = $('<div class="row illRow"></div>');
 	 		$('.app').append(row);
 	 		return row;
 		 	//this.$el.append(row);
@@ -20,19 +21,20 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		 	counter = 0,
 	 			row;
 	 		if(self.collection){
-	 			self.collection.each(function(photo){
-	 				var photoV = new photoView({model: photo}),
-	 					id =  '#' + photo.attributes.image.public_id,
-	 					url = photo.attributes.image.url,
-	 					point = url.indexOf('upload');
-	 				
+	 		  self.collection.each(function(photo){
+	 				var id =  '#' + photo.attributes.image.public_id,
+	 					  url = photo.attributes.image.url,
+	 					  point = url.indexOf('upload');
 	 				url = url.slice(0 , (point+6)) + '/h_400' + url.slice(point + 6);
+	 				
 	 				photo.set({
 	 					small_url: url
 	 				});
-	 				if(counter == 0 ||counter % 3 == 0){
+
+	 				if(counter === 0 ||counter % 3 === 0){
 		 				row = self.setUpNewRow();
 		 			}
+
 		 			var photoV = new photoView({model: photo});
 		 			row.append(photoV.render().el);
 		 			$(id).bind('load', function(){
@@ -40,7 +42,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 						//$(this).fadeTo('slow' , 1);
 						$(this).addClass("fadeIn");
 					});
-		 			counter++;			
+		 			counter++;
 	 			}, self , function(){
 	 				document.getElementsByClassName('loading').style.display = 'none';
 	 			});

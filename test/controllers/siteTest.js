@@ -12,7 +12,7 @@ describe("Home Page Tests" , function () {
 	
 	beforeEach(function(done) {
 	    this.browser.visit('/', done);
-	  });
+	});
 	
 	it('should show home page', function(){
 		assert.ok(this.browser.success);
@@ -28,8 +28,8 @@ describe("About Page Tests" , function () {
 	});
 	
 	beforeEach(function(done) {
-	    this.browser.visit('/about', done);
-	  });
+	  this.browser.visit('/about', done);
+	});
 	
 	it('should show about page', function(){
 		assert.ok(this.browser.success);
@@ -46,8 +46,8 @@ describe("Blog Page Tests" , function () {
 	});
 	
 	beforeEach(function(done) {
-	    this.browser.visit('/Blog', done);
-	  });
+	  this.browser.visit('/Blog', done);
+	});
 	
 	it('should show blog page', function(){
 		assert.ok(this.browser.success);
@@ -64,9 +64,9 @@ describe("Contact Page Tests", function () {
 		//this.browser.visit('/contact', done);
 	});
 	// load the contact page before each test
-	  beforeEach(function(done) {
-	    this.browser.visit('/contact', done);
-	  });
+	beforeEach(function(done) {
+	  this.browser.visit('/contact', done);
+	});
 	it('should show contact a form', function(){
 		assert.ok(this.browser.success);
 		assert.equal(this.browser.text('title'), 'Paddy Walsh Illustration - Contact');

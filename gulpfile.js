@@ -11,25 +11,25 @@ var gulp   = require('gulp'),
 // Lint Task
 gulp.task('lint', function() {
     return gulp.src('./app/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('copyFonts' , function(){
   return gulp.src('./app/public/custom-fonts/**/*.{ttf,eot,woff,svg,woff2}')
-         .pipe(rename({dirname: ''}))
-         .pipe(gulp.dest('./app/dist/css'))
+  .pipe(rename({dirname: ''}))
+  .pipe(gulp.dest('./app/dist/css'));
 });
 
 gulp.task('css', function(){
-   return gulp.src('./app/public/**/*.css')
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-     }))
-    .pipe(minifyCSS())
-    .pipe(concat('style.min.css'))
-    .pipe(gulp.dest('./app/dist/css'))
+  return gulp.src('./app/public/**/*.css')
+  .pipe(autoprefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe(minifyCSS())
+  .pipe(concat('style.min.css'))
+  .pipe(gulp.dest('./app/dist/css'));
 });
 
 
@@ -40,7 +40,7 @@ gulp.task('stylus', function () {
 });
 
 gulp.task('watch', function(){
-    gulp.watch("./app/public/stylesheets/*.styl", ['stylus']);
+  gulp.watch("./app/public/stylesheets/*.styl", ['stylus']);
 });
 
 gulp.task('dev', function() {

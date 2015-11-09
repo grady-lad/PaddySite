@@ -38,7 +38,6 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 				$('.status').text('Could not delete image');
 			}});
 		}
-
 	});
 	return photoView;
 });

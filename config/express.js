@@ -13,22 +13,23 @@ var path 			 = require('path');
  */
 module.exports = function (app, passport) {
 
-	//======================
-	// Cookie Parser Config
-	//=======================
-	app.use(cookieParser()); // read cookies (needed for auth)
+  //======================
+  // Cookie Parser Config
+  //=======================
+  app.use(cookieParser()); // read cookies (needed for auth)
 
-	//============================
-	// MIddleware Configuration
-	//=============================
-	app.use(bodyParser.urlencoded({ extended: true })); //configure app to use bodyParser()
-	app.use(bodyParser.json()); //this will let us get the data from a POST
-	app.use(multer());
-	app.use(expressValidator());
-	//=====================
-	// Cloudinary Config
-	//=====================
-	if (typeof(process.env.CLOUDINARY_URL)=='undefined'){
+  //============================
+  // MIddleware Configuration
+  //=============================
+  app.use(bodyParser.urlencoded({ extended: true })); //configure app to use bodyParser
+  app.use(bodyParser.json()); //this will let us get the data from a POST
+  app.use(multer());
+  app.use(expressValidator());
+  //=====================
+  // Cloudinary Config
+  //===================== 
+  console.log(process.env.NODE_ENV);
+  if (typeof(process.env.CLOUDINARY_URL) === 'undefined'){
 		console.warn('!! cloudinary config is undefined !!');
 		console.warn('export CLOUDINARY_URL or set dotenv file');
 	}else{
@@ -51,8 +52,8 @@ module.exports = function (app, passport) {
 	//=====================
 	require('../config/passport')(passport);
 	app.use(session({ secret: process.env.SESSION_SECRET,
-					  resave: true,
-					  saveUninitialized: true
+	  resave: true,
+		saveUninitialized: true
 	})); // session secret
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions

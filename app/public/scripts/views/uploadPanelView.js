@@ -1,35 +1,34 @@
 define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backbone, $, Events, cloudinary) {
 	var uploadPanelView = Backbone.View.extend({
 		
-        el: "#panelUpload",
+    el: "#panelUpload",
 
 		initialize: function(){
     		this.setUpForm();	
  		},
 
-        events: {
-            "click .uploadbutton": "testy"
-        },
+    events: {
+      "click .uploadbutton": "testy"
+    },
 
-        testy: function(e){
-            e.preventDefault();
-            var imageData;
-            if(!$('.hiddenUpload').val()){
-                $('.status').text("Pick a photo to upload ya dope");
-            }else{
-               imageData = JSON.parse($('.hiddenUpload').val());
-                this.collection.create({
-                    image: imageData  },{
-                    error: function(model, response){
-                        $('.status').text("Could not upload image ?");
-                    },
-                    success: function(model, response){
-                        $(".preview").html('');
-                    }    
+    testy: function(e){
+      e.preventDefault();
+      var imageData;
+      if(!$('.hiddenUpload').val()){
+        $('.status').text("Pick a photo to upload ya dope");
+      }else{
+        imageData = JSON.parse($('.hiddenUpload').val());
+        this.collection.create({ image: imageData  },{
+          error: function(model, response){
+            $('.status').text("Could not upload image ?");
+          },
+          success: function(model, response){
+            $(".preview").html('');
+          }    
 
-                });
-            }
-        },
+        });
+      }
+    },
  		
  		setUpForm: function() {
  			

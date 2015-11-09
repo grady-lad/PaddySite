@@ -4,7 +4,7 @@ var passport = require('passport');
 var Config = require('./config/config');
 var app = express();
 
-config = new Config();
+var config = new Config();
 //====================================
 // DATABASE CONNECTION
 //=====================================
@@ -14,10 +14,11 @@ mongoose.connect(config.mongodburl);
 var db = mongoose.connection;
 
 db.on('error', function (err) {
-console.log('connection error', err);
+  console.log('connection error', err);
 });
+
 db.once('open', function () {
-console.log('connected.');
+  console.log('connected.');
 });
 //========================
 //LOGGING
@@ -40,13 +41,14 @@ require('./config/routes')(app, passport);
 //===============================
 // Production Server Config
 //===============================
-if(process.env.NODE_ENV === 'production'){
-app.listen(process.env.PORT || config.port, function (error){
+if(process.env.NODE_ENV === 'development'){
+  console.log("listening");
+  app.listen(process.env.PORT || config.port, function (error){
 	if(error){
-		log.error("Unable to listen for connections ", error);
-		process.exit(10);
+      log.error("Unable to listen for connections ", error);
+	  process.exit(10);
 	}
-});
+  });
 }
 
 module.exports = app;

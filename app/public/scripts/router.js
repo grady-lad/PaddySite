@@ -1,22 +1,23 @@
 define(["backbone", "events", "collections/photo", "views/photoCollection"], function(Backbone, Events, photoCollection, photoCollectionView) {
-	var photoRouter = Backbone.Router.extend({
-		initialize: function() {
+  var photoRouter = Backbone.Router.extend({
+    initialize: function() {
 			var self = this;
-		    this._setupCollection();
-		    Events.on("router:navigate", function(url) {
-		        self.navigate(url, { trigger: true });
-		      });
-	    },
+		  this._setupCollection();
+		  Events.on("router:navigate", function(url) {
+		    self.navigate(url, { trigger: true });
+		  });
+	  },
 	    
-	    routes: {
-	    	"gallery": "illustration",
-	    	"photo": "singleIll",
-	    	"imagepanel": "uploader"
-	    },
-	    _setupCollection: function() {
-			var data = $("#intialContent").html();
+	  routes: {
+	    "gallery": "illustration",
+	    "photo": "singleIll",
+	    "imagepanel": "uploader"
+	  },
+	  
+	   _setupCollection: function() {
+		  var data = $("#intialContent").html();
 			if(data !== '[]'){
-				$(".app").append('<div class="loading"></div>');
+			  $(".app").append('<div class="loading"></div>');
 			}
 			this.collection = new photoCollection(JSON.parse(data));
 			return this.collection;
@@ -35,7 +36,6 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 			$('.app').html('');
 			var view = new photoCollectionView({collection: this.collection});
 			view.renderB();
-			
 			//this._renderView(view);
 		},
 		/**
