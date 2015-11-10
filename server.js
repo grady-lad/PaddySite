@@ -40,15 +40,13 @@ require('./config/routes')(app, passport);
 
 //===============================
 // Production Server Config
-//===============================
-if(process.env.NODE_ENV === 'development'){
-  console.log("listening");
-  app.listen(process.env.PORT || config.port, function (error){
-	if(error){
-      log.error("Unable to listen for connections ", error);
+//===============================  
+app.listen(process.env.PORT || config.port, function (error){
+  if(error){
+    log.error("Unable to listen for connections ", error);
 	  process.exit(10);
 	}
-  });
-}
+});
+
 
 module.exports = app;
