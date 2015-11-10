@@ -20,7 +20,7 @@ define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Even
 			var offset = current.offset(); 
       var pos_x = e.pageX - offset.left;
       var middle = current.outerWidth() / 2;
-      pos_x < middle ? this.showNext('300px' , 'prevUrl') : this.showNext('-300px' , 'nextUrl');
+      pos_x < middle ? this.showNext('-300px' , 'prevUrl') : this.showNext('300px' , 'nextUrl');
     },
 
     showNext: function(pos, urlId){
@@ -30,7 +30,7 @@ define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Even
         hide = document.getElementById(urlId);
         return;
       }
-      $('.singleIll').animate({left: pos, opacity: '0'}, function(){
+      $('.singleIll').animate({left: pos, opacity: '0'}, 400, function(){
 		    var url = "photo?id=" + id;
 		    Events.trigger("router:navigate", url);
       });
