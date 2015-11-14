@@ -46,8 +46,9 @@ module.exports = function (app, passport) {
   //=====================
   // Control Panel Routes
   //======================
-  app.get("/imagepanel" , loggedIn, uploader.displayPanel); 
+  app.get("/imagepanel", uploader.displayPanel); 
   app.post("/gallery" , uploader.upload);
+  app.post("/updateCrops", uploader.cropDate);
   app.delete("/gallery/:id" , uploader.remove);
 
   //================

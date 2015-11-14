@@ -146,7 +146,7 @@ highlight a
   background url('https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif') 50% 50% no-repeat 
   
 .centerIll
-  height 400px
+  height 350px
   overflow hidden
     
 .uploader-panel
@@ -174,8 +174,10 @@ maxImage()
   max-height 100%
 
 .multipleIll
+  position relative
   opacity 0
-  maxImage()
+  max-heigth 100%
+  width 100%
 
 .singleIll
   position relative
@@ -187,4 +189,58 @@ maxImage()
   -webkit-transition opacity 0.5s ease-in
   -moz-transition opacity 0.5s ease-in
   -o-transition opacity 0.5s ease-in
-  opacity 1;
+  opacity 1
+
+.modalContainer
+  position fixed
+  bottom: 0
+  left 0
+  right 0
+  top 0
+  background rgba(0,0,0,.8)
+  display none
+
+.modalCustom
+  width 400px
+  height 500px
+  background-color #fff
+  position absolute
+  top 40%
+  left 40%
+  margin -200px 0 0 -200px
+
+.close
+ position inherit
+ right 5
+ top 5
+ 
+.remove-image figure
+  overflow: hidden;
+  position: relative;
+ 
+.remove-image figcaption
+  background rgba(0,0,0,0.8)
+  color white
+  display table
+  left 0
+  right 0
+  top 0
+  opacity 0
+  position absolute
+  z-index 100
+  font-size 1.5em
+  width 300px
+  height 300px
+
+.remove-image p
+  cursor pointer
+  float left
+
+.remove-image figure:hover figcaption 
+  opacity: 1
+
+  
+
+  
+
+

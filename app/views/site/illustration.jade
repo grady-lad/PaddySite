@@ -10,22 +10,26 @@ block backbone
     if photos
     <div class = "col-md-4 centerIll">
     <a href="#" class="singleIllLink">
-    <img id = "{{image.public_id}}" class ="img-responsive img-fade multipleIll" src = "{{small_url}}"/>
+    | {{#if croppedImage}}
+    <img id= "{{image.public_id}}" class="img-responsive img-fade multipleIll" src="{{croppedImage}}"/>
+    | {{else}}
+    <img  id= "{{image.public_id}}" class="img-responsive img-fade multipleIll" src="{{image.url}}"/>
+    | {{/if}}
     </a>
     </div>
     
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
     <div class = "col-md-12 singleHolder">
     <img class="img-responsive img-centre singleIll"src="{{image.url}}"/>
-    {{#if prevUrl}}
+    | {{#if prevUrl}}
     <div class="prevUrl">
     <img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/paddystaging/Gallery-Arrow-left.png"/>
     </div>
-    {{/if}}
-    {{#if nextUrl}}
+    | {{/if}}
+    | {{#if nextUrl}}
     <div class="nextUrl">
     <img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/paddystaging/Gallery-Arrow-Right.png"/>
     </div>
-    {{/if}}
+    | {{/if}}
     </div> 
   

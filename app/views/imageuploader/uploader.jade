@@ -14,13 +14,53 @@ block backbone
           input.uploadbutton(type="submit", value="Upload Image")
           span.status
           .preview
-     
+            
      .col-md-8.app
          script(id = "illustrationTemplate", type = "text/x-handlebars")
-           <div class="col-md-4 remove-image">
-           <img class="img-responsive img-fade" src="{{image.url}}" height = "300" width="300"/>
+           <div class="remove-image">
+           <figure>
+           <img class="img-responsive img-fade uploadImage" src="{{image.url}}" height = "300" width="300"/>
            <input type="hidden" value="{{image.public_id}}" name="imgId"/>
-           <input class="remove" type="submit" value="Remove"/>
+           <figcaption>
+           <p class="remove">Remove</p>
+           <p class="crop">Crop</p>
+           </figcaption>
+           </figure>
+           </div>
+           <div class="modalContainer">
+           <div class="modalCustom">
+           | {{#if croppedImage}}
+           <img class="img-responsive img-fade cropper" src="{{croppedImage}}" height = "300" width="300"/>
+           | {{else}}
+           <img class="img-responsive img-fade cropper" src="{{image.url}}" height = "300" width="300"/>
+           | {{/if}}
+           <button class="closure">Close me</button>
+           <button class="cropPrev"> Preview</button>
+           <div class="dropDownCropList">
+           <select id="cropSize" >
+           <option>Select Size</option>
+           <option value="h_700">700</option>
+           <option value="h_1000">1000</option>
+           <option value="h_1300">1300</option>
+           <option value="h_1600">1600</option>
+           </select>
+           </div>
+           <div class="dropDownGravityList">
+           <select id="cropGravity" >
+           <option>Select Direction</option>
+           <option value="g_north">North</option>
+           <option value="g_north_west">North_West</option>
+           <option value="g_north_east">North_East</option>
+           <option value="g_center">Centre</option>
+           <option value="g_east">East</option>
+           <option value="g_west">West</option>
+           <option value="g_south">South</option>
+           <option value="g_south_east">South East</option>
+           <option value="g_south_west">South West</option>
+           </select>
+           </div>
+           <button class="saveCrop">Save changes</button>
+           </div>
            </div>
   script.
     requirejs(['initPanel'])             

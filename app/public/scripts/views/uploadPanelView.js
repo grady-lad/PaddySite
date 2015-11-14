@@ -4,7 +4,8 @@ define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backb
     el: "#panelUpload",
 
 		initialize: function(){
-    		this.setUpForm();	
+    		this.setUpForm();
+        $('.loading').hide();
  		},
 
     events: {
@@ -54,8 +55,7 @@ define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backb
  					width: 200,
  					height: 200,
  					crop: "fill",
-                    gravity: 'south_east'
- 				}).appendTo(preview);
+        }).appendTo(preview);
 
  				$('<a>').
  				addClass('delete_by_token').

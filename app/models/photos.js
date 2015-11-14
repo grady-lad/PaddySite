@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 
 var photoSchema = new Schema ({
 	 //title      : { type : String, length   : 255 },
-	 image      : { type : JSON}
+	 image  : { type : JSON},
+	 croppedImage : String
 
 });
 
