@@ -54,7 +54,8 @@ module.exports = function (app, passport) {
 	require('../config/passport')(passport);
 	app.use(session({ secret: process.env.SESSION_SECRET,
 	  resave: true,
-		saveUninitialized: true
+		saveUninitialized: true,
+		maxAge: 60000
 	})); // session secret
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions

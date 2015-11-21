@@ -26,7 +26,6 @@ define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backb
           success: function(model, response){
             $(".preview").html('');
           }    
-
         });
       }
     },
@@ -73,7 +72,7 @@ define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backb
  						$('.preview').html('');
  						$('#info').html('');
  						$("#photo_bytes").val('');
-                        $('.hiddenUpload').remove();
+            $('.hiddenUpload').remove();
  						$('input[name="photo[image]"]').remove();
  					}).fail(function() {
  						$('.status').text("Cannot delete image");

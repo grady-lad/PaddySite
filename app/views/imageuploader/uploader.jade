@@ -17,11 +17,11 @@ block backbone
             
      .col-md-8.app
          script(id = "illustrationTemplate", type = "text/x-handlebars")
-           <div class="remove-image">
+           <div class="remove-image col-md-6">
            <figure>
-           <img class="img-responsive img-fade uploadImage" src="{{image.url}}" height = "300" width="300"/>
+           <img class="img-responsive img-fade uploadImage " src="{{image.url}}" height = "300" width="300"/>
            <input type="hidden" value="{{image.public_id}}" name="imgId"/>
-           <figcaption>
+           <figcaption class="editImage">
            <p class="remove">Remove</p>
            <p class="crop">Crop</p>
            </figcaption>
@@ -30,13 +30,14 @@ block backbone
            <div class="modalContainer">
            <div class="modalCustom">
            | {{#if croppedImage}}
-           <img class="img-responsive img-fade cropper" src="{{croppedImage}}" height = "300" width="300"/>
+           <img class="img-responsive img-fade cropper" src="{{croppedImage}}" height = "300" width="300"></img>
            | {{else}}
-           <img class="img-responsive img-fade cropper" src="{{image.url}}" height = "300" width="300"/>
+           <img class="img-responsive img-fade cropper" src="{{image.url}}" height = "300" width="300"></img>
            | {{/if}}
-           <button class="closure">Close me</button>
-           <button class="cropPrev"> Preview</button>
-           <div class="dropDownCropList">
+           <a herf="#" class="closure">X</a>
+           <div class="crop-controls">
+           <div class="crop-control">
+           <div class="dropDownCropList crop-control">
            <select id="cropSize" >
            <option>Select Size</option>
            <option value="h_700">700</option>
@@ -45,7 +46,9 @@ block backbone
            <option value="h_1600">1600</option>
            </select>
            </div>
-           <div class="dropDownGravityList">
+           </div>
+           <div class="crop-control">
+           <div class="dropDownGravityList crop-control">
            <select id="cropGravity" >
            <option>Select Direction</option>
            <option value="g_north">North</option>
@@ -59,7 +62,12 @@ block backbone
            <option value="g_south_west">South West</option>
            </select>
            </div>
-           <button class="saveCrop">Save changes</button>
+           </div>
+           <div class="crop-control">
+           <button class="cropPrev btner"> Preview</button>
+           </div>
+           </div>
+           <button class="saveCrop btner">Save changes</button>
            </div>
            </div>
   script.

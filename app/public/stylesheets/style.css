@@ -204,7 +204,7 @@ th {
     height: 300px !important;
   }
   #social {
-    display: inline;
+    display: inline-block;
   }
 }
 /* submission-form.jade */
@@ -222,7 +222,7 @@ th {
 #submit_button {
   margin-top: 10px;
   position: relative;
-  margin-left: 360px;
+  margin-left: 140%;
   border: 1px solid #222;
   width: 60%;
   font-family: apple_regular;
@@ -232,7 +232,7 @@ th {
   border: 1px solid #222;
   font-family: apple_regular;
 }
-@media (min-width: 994px) {
+@media (min-width: 993px) {
   #contactsuggestion,
   #contactemail {
     width: 200%;
@@ -242,6 +242,10 @@ th {
   #contactsuggestion,
   #contactemail {
     width: 100%;
+  }
+  #submit_button {
+    margin: 0 0 0 0;
+    width: 30%;
   }
 }
 @media (min-width: 790px) {
@@ -294,7 +298,7 @@ highlight a {
   margin-top: 25px;
 }
 .nav-logo {
-  margin-top: -15px !important;
+  margin-top: -5px !important;
 }
 .footer {
   padding-top: 3%;
@@ -382,13 +386,14 @@ highlight a {
   top: 0;
   background: rgba(0,0,0,0.8);
   display: none;
+  z-index: 9000;
 }
 .modalCustom {
-  width: 400px;
-  height: 500px;
+  width: 800px;
+  height: 600px;
   background-color: #fff;
-  position: absolute;
-  top: 40%;
+  position: fixed;
+  top: 25%;
   left: 40%;
   margin: -200px 0 0 -200px;
 }
@@ -398,8 +403,11 @@ highlight a {
   top: 5;
 }
 .remove-image figure {
+  width: 300px;
+  height: 300px;
   overflow: hidden;
   position: relative;
+  padding-top: 10px;
 }
 .remove-image figcaption {
   background: rgba(0,0,0,0.8);
@@ -419,6 +427,109 @@ highlight a {
   cursor: pointer;
   float: left;
 }
-.remove-image figure:hover figcaption {
+.editImage:not(.no-hover):hover {
   opacity: 1;
+}
+.crop {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  font-size: 3.5em;
+}
+.crop:hover {
+  color: #ff3c77;
+}
+.remove:hover {
+  color: #ff3c77;
+}
+.remove {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  font-size: 3.5em;
+}
+.cropper {
+  margin: 0 auto;
+  padding-top: 70px;
+}
+.closure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 9.5em;
+  color: #ff3c77;
+}
+.closure:hover {
+  color: #ff3c77;
+}
+.crop-controls {
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 100%;
+}
+.crop-control {
+  float: left;
+  width: 33.3%;
+  margin: 0 auto;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+.saveCrop {
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+}
+.imageWrap {
+  width: 300px;
+  height: 300px;
+  background: url("https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif") center center no-repeat;
+}
+.btner {
+  outline: none;
+  width: 150px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #ff3c77;
+  height: 30px;
+  font-size: 16px;
+  box-shadow: 0 5px 5px #ff3c94;
+}
+.btner:active {
+  box-shadow: 0 2px 0 #ff3c77;
+  -webkit-transform: translateY(3px);
+  -moz-transform: translateY(3px);
+  -o-transform: translateY(3px);
+  -ms-transform: translateY(3px);
+  transform: translateY(3px);
+}
+.dropDownGravityList select {
+  background-color: #ff3c77;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  overflow: hidden;
+  width: 150px;
+  height: 30px;
+  outline: none;
+}
+.dropDownCropList select {
+  background-color: #ff3c77;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  overflow: hidden;
+  width: 150px;
+  height: 30px;
+  outline: none;
+}
+.cropPrev {
+  margin-bottom: 300px !important;
+}
+.mog {
+  text-align: right;
 }

@@ -7,8 +7,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 	   "click .crop": "showModal",
 	   "click .closure": "closeModal",
 	   "click .cropPrev": "showCrop",
-	   "click .saveCrop": "saveCrop",
-	   "mouseover .uploadImage": "showMenu"
+	   "click .saveCrop": "saveCrop"
 		},
 		render: function(){
 			"use strict";
@@ -44,16 +43,15 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			}});
 		},
 
-		showMenu: function(){
-			console.log("Hovered");
-		},
-
-		showModal: function(){
+		showModal: function(e){
+			e.stopPropagation();
       this.$('.modalContainer').show();
+      $('.illRow').find('.editImage').addClass('no-hover');
 		},
 
 		closeModal: function(){
 		  this.$('.modalContainer').hide();
+		  $('.illRow').find('.editImage').removeClass('no-hover');
 		},
 
 		showCrop: function(e){
@@ -66,11 +64,10 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 
 			var size = this.checkOption($( '#cropSize' ).val()) ? "" : $( '#cropSize' ).val() + ",";
 			var gravity = this.checkOption($( '#cropGravity' ).val()) ? "" : $('#cropGravity').val();
-			console.log("size is " + size);
-
 			start = url.slice(0 , (point+6));
 			end = url.slice(point + 6);
 			newUrl = start + "/c_crop," + size + gravity + end;
+			//this.$('.cropper').hide();
 			this.$('.cropper').attr('src', newUrl);
 		},
 
@@ -84,6 +81,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 
 		saveCrop: function(e){
 		  e.preventDefault();
+		  var self = this;
 			var size = $( '#cropSize' ).val();
 			var gravity = $('#cropGravity').val();
 			var url = this.model.attributes.image.url;
@@ -104,23 +102,14 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			  		cropped: newUrl
 			  	}
 			  })
-    		.done( function(msg) { console.log(msg); } )
+    		.done( function(msg) {
+    			self.model.set("croppedImage" , newUrl);
+    			alert("image Saved!");
+    		} )
     		.fail( function(xhr, textStatus, errorThrown) {
           console.log("uggh");
     		});
-			  //in our route specify what method we will use to handle the request - DONE
-			  //update the models croppedImage parameter - DONE
-			  //return the response. - DONE
-			  //SAVE IMAGE TO MONOGDB 
-			  //display success message.
-			  //Update the frontend to show the croppedImage
-			  //Error handling for no cropped image(front and back)
-			  //Styling of the imagecropper.
-			  //restyle the uploader panel 3 * 3 bullshit
-			 	this.model.set("croppedImage" , newUrl);
-			 	console.log(this.model);
 			 }
-			 console.log("not in it");
 		}
 	});
 	return photoView;

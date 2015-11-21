@@ -39,3 +39,6 @@ app/assets/stylesheets/style.css
 
 #heroku
 .idea/
+
+#sublime
+PaddySite.sublime-workspace

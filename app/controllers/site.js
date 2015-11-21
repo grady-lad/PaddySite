@@ -19,7 +19,7 @@ exports.blog = function (req, res) {
 exports.illustration = function (req, res) {
 	/** Find our photos and order than by id**/
 	Photo.find({}).sort({'_id' : 1}).exec(function(err, photos) {
-		if (err) return console.error(err);
+		if (err){ return console.error(err);}
 		//res.json(photos);
 		var data = JSON.stringify(photos);
 		res.render("site/illustration" , {title: 'Illustration', photos: data});
