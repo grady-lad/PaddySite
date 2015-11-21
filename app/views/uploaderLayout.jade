@@ -2,11 +2,7 @@ doctype
 html
   head
     title Admin Homepage
-    link(rel='stylesheet', href='/custom-fonts/apple/stylesheet.css')
-    link(rel='stylesheet', href='/custom-fonts/super-effective/stylesheet.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/style.min.css') 
     .row.logo_and_navbar
       .col-md-12
         .going-right
@@ -17,6 +13,6 @@ html
      .container
       #wrapper
         #switch-content
-          script(src='/scripts/lib/require.js', data-main='/scripts/require.config.js')
+          script(src='/lib/require.js', data-main='/require.config.js')
           block content
           block backbone
