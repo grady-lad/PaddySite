@@ -43,7 +43,6 @@ module.exports = function (app, passport) {
 	app.set("views", __dirname + "/../app/views");
 	app.set("view engine", "jade");
 	if(process.env.NODE_ENV === 'production'){
-		  console.log("dister");
     	app.use(express.static(path.join(__dirname , '/../app/dist/')));
 	}else{
 		app.use(express.static(path.join(__dirname , '/../app/public/')));
