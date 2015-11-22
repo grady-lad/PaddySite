@@ -13,7 +13,7 @@ block backbone
     | {{#if croppedImage}}
     <img id= "{{image.public_id}}" class="img-responsive img-fade multipleIll" src="{{croppedImage}}"/>
     | {{else}}
-    <img  id= "{{image.public_id}}" class="img-responsive img-fade multipleIll" src="{{image.url}}"/>
+    <img  id= "{{image.public_id}}" class="img-responsive img-fade multipleIll" src="{{image.fill_url}}"/>
     | {{/if}}
     </a>
     </div>

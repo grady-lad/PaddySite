@@ -56,19 +56,28 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 
 		showCrop: function(e){
 			e.preventDefault();
+			e.stopPropagation();
 			var newUrl = "";
 			var url = this.model.attributes.image.url;
 			var start = "";
 			var end = "";
 			var point = url.indexOf('upload');
-
-			var size = this.checkOption($( '#cropSize' ).val()) ? "" : $( '#cropSize' ).val() + ",";
-			var gravity = this.checkOption($( '#cropGravity' ).val()) ? "" : $('#cropGravity').val();
+		
+			var size = this.checkOption(this.$( '.cropSize' ).val()) ? "" : this.$( '.cropSize' ).val() + ",";
+			var gravity = this.checkOption(this.$( '.cropGravity' ).val()) ? "" : this.$('.cropGravity').val();
+			
+			
 			start = url.slice(0 , (point+6));
 			end = url.slice(point + 6);
-			newUrl = start + "/c_crop," + size + gravity + end;
-			//this.$('.cropper').hide();
-			this.$('.cropper').attr('src', newUrl);
+			newUrl = start + "/c_crop,h_" + size + gravity + end;
+			this.$('.cropper').hide();
+			var self = this;
+			var i = $('<img />').attr('src',newUrl).load(function() {
+            self.$('.cropper').attr('src', i.attr('src'));
+            self.$('.cropper').css('background-image', 'none');
+            self.$('.cropper').css('max-heigth', '100%');
+            self.$('.cropper').fadeIn();
+      });
 		},
 
 		checkOption: function(option){
@@ -82,8 +91,9 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		saveCrop: function(e){
 		  e.preventDefault();
 		  var self = this;
-			var size = $( '#cropSize' ).val();
-			var gravity = $('#cropGravity').val();
+			var size = this.$( '.cropSize' ).val();
+			var gravity = this.$('.cropGravity').val();
+			console.log("the size is " + size);
 			var url = this.model.attributes.image.url;
 			var point = url.indexOf('upload');
 
@@ -91,7 +101,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			var end = url.slice(point + 6);
 			var newUrl = "";
 			if(!this.checkOption(size) && !this.checkOption(gravity)){
-			  newUrl = start + "/c_crop," + size + "," + gravity + end;
+			  newUrl = start + "/c_crop,h_" + size + "," + gravity + end;
 			  console.log("making the reuest with");
 			  console.log("id " + this.model.id);
 			  console.log("url " + newUrl);

@@ -17,9 +17,9 @@ block backbone
             
      .col-md-8.app
          script(id = "illustrationTemplate", type = "text/x-handlebars")
-           <div class="remove-image col-md-6">
+           <div class="remove-image col-md-4">
            <figure>
-           <img class="img-responsive img-fade uploadImage " src="{{image.url}}" height = "300" width="300"/>
+           <img class="img-responsive img-fade uploadImage" src="{{image.fill_url}}" height = "300" width="300"/>
            <input type="hidden" value="{{image.public_id}}" name="imgId"/>
            <figcaption class="editImage">
            <p class="remove">Remove</p>
@@ -29,27 +29,23 @@ block backbone
            </div>
            <div class="modalContainer">
            <div class="modalCustom">
+           <div class="modalImageWrapper">
            | {{#if croppedImage}}
-           <img class="img-responsive img-fade cropper" src="{{croppedImage}}" height = "300" width="300"></img>
+           <img class="img-responsive img-fade cropper" src="{{croppedImage}}"></img>
            | {{else}}
-           <img class="img-responsive img-fade cropper" src="{{image.url}}" height = "300" width="300"></img>
+           <img class="img-responsive img-fade cropper" src="{{image.fill_url}}"></img>
            | {{/if}}
+           </div>
            <a herf="#" class="closure">X</a>
            <div class="crop-controls">
            <div class="crop-control">
            <div class="dropDownCropList crop-control">
-           <select id="cropSize" >
-           <option>Select Size</option>
-           <option value="h_700">700</option>
-           <option value="h_1000">1000</option>
-           <option value="h_1300">1300</option>
-           <option value="h_1600">1600</option>
-           </select>
+           <input class="cropSize" placeholder="Enter a numeric value"/>
            </div>
            </div>
            <div class="crop-control">
            <div class="dropDownGravityList crop-control">
-           <select id="cropGravity" >
+           <select class="cropGravity" >
            <option>Select Direction</option>
            <option value="g_north">North</option>
            <option value="g_north_west">North_West</option>

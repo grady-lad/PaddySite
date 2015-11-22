@@ -15,11 +15,19 @@ define(["backbone", "jquery", "events", "lib/jquery.cloudinary"], function(Backb
     testy: function(e){
       e.preventDefault();
       var imageData;
+      var url,
+          point;
+      
       if(!$('.hiddenUpload').val()){
         $('.status').text("Pick a photo to upload ya dope");
       }else{
+        
         imageData = JSON.parse($('.hiddenUpload').val());
-        this.collection.create({ image: imageData  },{
+        url = imageData.url;
+        point = url.indexOf('upload');
+        url = url.slice(0 , (point+6)) + '/c_fill,h_360,w_360' + url.slice(point + 6);
+        imageData.fill_url = url;
+        this.collection.create({ image: imageData  },{ 
           error: function(model, response){
             $('.status').text("Could not upload image ?");
           },

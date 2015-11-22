@@ -3,7 +3,10 @@ html
   head
     title Paddy Walsh Illustration - #{title}
     link(rel="icon", type="image/png", href="https://s3-eu-west-1.amazonaws.com/paddystaging/Favicon16.png")
-    link(rel='stylesheet', href='/css/style.min.css')
+    link(rel='stylesheet', href='/custom-fonts/apple/stylesheet.css')
+    link(rel='stylesheet', href='/custom-fonts/super-effective/stylesheet.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     meta(name='viewport', content='width=device-width', initial-scale='1')
     .row.logo_and_navbar
       .col-md-12
@@ -32,7 +35,7 @@ html
       #wrapper
         #switch-content
           block content
-          script(src='/lib/require.js', data-main='require.config.js')
+          script(src='/scripts/lib/require.js', data-main='/scripts/require.config.js')
           block backbone
      .container
        .footer
