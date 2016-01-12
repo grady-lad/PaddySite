@@ -21,15 +21,11 @@ block backbone
   script(id = "singleIllustrationTemplate", type = "text/x-handlebars")
     <div class = "col-md-12 singleHolder">
     <img class="img-responsive img-centre singleIll"src="{{image.url}}"/>
-    | {{#if prevUrl}}
     <div class="prevUrl">
     <img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/paddystaging/Gallery-Arrow-left.png"/>
     </div>
-    | {{/if}}
-    | {{#if nextUrl}}
     <div class="nextUrl">
     <img class="img-responsive" src="https://s3-eu-west-1.amazonaws.com/paddystaging/Gallery-Arrow-Right.png"/>
     </div>
-    | {{/if}}
     </div> 
   

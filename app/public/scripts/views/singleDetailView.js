@@ -26,9 +26,12 @@ define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Even
     showNext: function(pos, urlId){
       var id = this.model.get(urlId);
       var hide;
-      if(id === undefined ){
+      if(id === undefined && urlId === 'nextUrl'){
         hide = document.getElementById(urlId);
-        return;
+				id = this.collection.first().id;
+      } else if(id === undefined && urlId === 'prevUrl'){
+        hide = document.getElementById(urlId);
+				id = this.collection.last().id;
       }
       $('.singleIll').animate({left: pos, opacity: '0'}, 400, function(){
 		    var url = "photo?id=" + id;

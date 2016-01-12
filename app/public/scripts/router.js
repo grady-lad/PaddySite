@@ -7,13 +7,13 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 		    self.navigate(url, { trigger: true });
 		  });
 	  },
-	    
+
 	  routes: {
 	    "gallery": "illustration",
 	    "photo": "singleIll",
 	    "imagepanel": "uploader"
 	  },
-	  
+
 	   _setupCollection: function() {
 		  var data = $("#intialContent").html();
 			if(data !== '[]'){
@@ -22,7 +22,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 			this.collection = new photoCollection(JSON.parse(data));
 			return this.collection;
 		},
-		
+
 		_renderView: function(view) {
 			$(".app").append(view.render().el);
 		},
@@ -30,8 +30,8 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 		renderViewIll: function(view){
 			$(".app").html(view.render().el);
 		},
-		//Gets the illustration gallery photos from the db creates the view and 
-		// renders anything with .app div. 
+		//Gets the illustration gallery photos from the db creates the view and
+		// renders anything with .app div.
 		illustration: function() {
 			$('.app').html('');
 			var view = new photoCollectionView({collection: this.collection});
@@ -43,6 +43,7 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 		 */
 		singleIll: function(id){
 			"use strict";
+      var collect = this.collection;
 			var split = id.split("=");
 			var singleIllustrationId = split[1];
 			var singleIllustration = this.collection.findWhere({_id: singleIllustrationId});
@@ -53,22 +54,22 @@ define(["backbone", "events", "collections/photo", "views/photoCollection"], fun
 			singleIllustration.set({nextUrl: nextLink});
 			singleIllustration.set({prevUrl: prevLink});
 			require(['views/singleDetailView'] , function(singleDetailView){
-				var view = new singleDetailView({model: singleIllustration});
+				var view = new singleDetailView({model: singleIllustration, collection: collect});
 				self.renderViewIll(view);
 				$('.singleIll').bind('load', function(){
 					$(this).fadeTo('slow' , 1);
 				});
 			});
-			
+
 		},
-		
+
 		uploader: function(){
 			var self = this;
 			require(['views/uploadPanelView'] , function(uploadPanelView){
 				var uploadView = new uploadPanelView({collection: self.collection});
 			});
 			var view = new photoCollectionView({collection: this.collection});
-			view.renderB();  
+			view.renderB();
 		}
 	});
 	return photoRouter;
