@@ -60,7 +60,7 @@ normalize-css()
   #submit_button
     margin 0 0 0 0
     width 30%
-    
+
 @media (min-width: 790px)
   #loginsuggestion, #loginemail
     width 100%
@@ -78,7 +78,7 @@ messageLayout()
 #successMessage
   messageLayout()
   color #15E8A2
- 
+
 .app
   min-height 300px
 
@@ -89,31 +89,35 @@ messageLayout()
   font-family Super-Effective
   color #FF3C77
   font-size 24px
-  
+
 .upload-nav-text
   font-size 36px
   font-family Courier New
   color black
-  
+
 .going-right
   margin-left 80%
 
 .lil-extra
   margin-left 20px
 
+highlight
+  text-decoration none
+  color #FF3C77
+
 highlight a
   text-decoration none
-  color #FF3C77 
-  
+  color #FF3C77
+
 .logo_and_navbar
   margin-top 25px
 
 .nav-logo
   margin-top -5px !important
 
-.footer 
+.footer
    padding-top 3%
-   float right   
+   float right
    font-family apple_regular
    font-size 10px
 
@@ -132,13 +136,13 @@ highlight a
 .singleHolder
   height 600px
   background url('https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif') 50% 50% no-repeat
- 
+
 .cloudinary_fileupload
   color transparent
 
 .illRow
   margin-top 20px
-    
+
 .loading
   position fixed
   opacity 0.1px
@@ -147,16 +151,16 @@ highlight a
   width 100%
   height 100%
   z-index 9999
-  background url('https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif') 50% 50% no-repeat 
-  
+  background url('https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif') 50% 50% no-repeat
+
 .centerIll
   height 300px
   width 300px
   overflow hidden
-    
+
 .uploader-panel
  border 4px solid #eee
- 
+
 .uploadbutton
   margin-top 10px
 
@@ -165,11 +169,11 @@ arrowNav()
   top 40%
   display inline
   position fixed
-  
+
 .prevUrl
   left 50px
   arrowNav()
-  
+
 .nextUrl
   right 60px
   arrowNav()
@@ -222,15 +226,15 @@ maxImage()
  position inherit
  right 5
  top 5
- 
+
  .remove-image
    width 33%
- 
+
 .remove-image figure
   width 100%
   height 100%
   position: relative;
- 
+
 .remove-image figcaption
   background rgba(0,0,0,0.8)
   color white
@@ -248,9 +252,9 @@ maxImage()
   cursor pointer
   float left
 
-.editImage:not(.no-hover):hover 
+.editImage:not(.no-hover):hover
   opacity: 1
-  
+
 .crop
   position absolute
   bottom 0
@@ -262,7 +266,7 @@ maxImage()
 
 .remove:hover
   color #FF3C77
-    
+
 
 .remove
   position absolute
@@ -297,17 +301,17 @@ maxImage()
   margin 0 auto
   padding-right 10px
   padding-left 5px
-  
+
 .saveCrop
   position absolute
   bottom 25px
   right 10px
 
-.imageWrap 
-  width: 300px; 
-  height: 300px; 
+.imageWrap
+  width: 300px;
+  height: 300px;
   background: url('https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif') center center no-repeat;
-  
+
 .btner
   outline none
   width 150px
@@ -324,7 +328,7 @@ maxImage()
     box-shadow 0 2px 0 #FF3C77
     //We are actually moving the element down
     transform translateY(3px)
-  
+
 .dropDownGravityList select
   background-color #FF3C77
   color white
@@ -347,17 +351,17 @@ maxImage()
   width 150px
   height 30px
   outline none
-  
+
   &::-webkit-input-placeholder
    color white
-   
+
   &:-moz-placeholder  /* Firefox 18- */
     color white
 
   &::-moz-placeholder   /* Firefox 19+ */
    color white
 
-  &:-ms-input-placeholder  
+  &:-ms-input-placeholder
    color white
 
 .cropPrev
@@ -373,4 +377,3 @@ maxImage()
   height 360px
   width 360px
   background url('https://s3-eu-west-1.amazonaws.com/paddystaging/loading.gif') 40% 50% no-repeat
-

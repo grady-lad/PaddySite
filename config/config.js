@@ -2,12 +2,6 @@
 
 module.exports = function(){
   switch(process.env.NODE_ENV){
-    case 'development':
-      return	{
-        port: process.env.EXPRESS_PORT || 3000,
-        ip: "127.0.0.1",
-        mongodburl: "mongodb://localhost/paddysdb"
-      };
     case 'production':
       return {
         port: process.env.EXPRESS_PORT || 5000,
@@ -20,8 +14,11 @@ module.exports = function(){
         ip: "127.0.0.1",
         mongodburl: "mongodb://testhost/testdbname"
       };
+    default:
+      return	{
+        port: process.env.EXPRESS_PORT || 3000,
+        ip: "127.0.0.1",
+        mongodburl: "mongodb://localhost/paddysdb"
+      };
   }
 };
-
-
-

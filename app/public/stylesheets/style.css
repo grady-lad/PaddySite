@@ -290,6 +290,10 @@ th {
 .lil-extra {
   margin-left: 20px;
 }
+highlight {
+  text-decoration: none;
+  color: #ff3c77;
+}
 highlight a {
   text-decoration: none;
   color: #ff3c77;
