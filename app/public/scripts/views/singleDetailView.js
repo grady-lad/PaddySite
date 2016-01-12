@@ -1,6 +1,6 @@
 define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Events) {
 	var singleDetailView = Backbone.View.extend({
-	
+
 		events: {
 		"click .singleHolder": "calcDirection"
 		},
@@ -13,14 +13,14 @@ define(["backbone", "handlebars", "events"], function(Backbone, Handlebars, Even
 		  this.$el.html(html);
 		  return this;
 		},
-		
+
 		calcDirection: function(e){
 			e.preventDefault();
 			var current = $('.singleHolder');
-			var offset = current.offset(); 
+			var offset = current.offset();
       var pos_x = e.pageX - offset.left;
       var middle = current.outerWidth() / 2;
-      pos_x < middle ? this.showNext('-300px' , 'prevUrl') : this.showNext('300px' , 'nextUrl');
+      pos_x < middle ? this.showNext('300px' , 'prevUrl') : this.showNext('-300px' , 'nextUrl');
     },
 
     showNext: function(pos, urlId){
