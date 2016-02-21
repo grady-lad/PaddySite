@@ -27,7 +27,7 @@ module.exports = function (app, passport) {
   app.use(expressValidator());
   //=====================
   // Cloudinary Config
-  //===================== 
+  //=====================
   console.log(process.env.NODE_ENV);
   if (typeof(process.env.CLOUDINARY_URL) === 'undefined'){
 		console.warn('!! cloudinary config is undefined !!');
@@ -36,7 +36,7 @@ module.exports = function (app, passport) {
 		console.log('cloudinary config:');
 		console.log(cloudinary.config());
 	}
-	
+
 	//======================
 	// View Configuration
 	//=======================

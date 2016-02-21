@@ -1,6 +1,6 @@
 define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handlebars, $, Events) {
 	var photoView = Backbone.View.extend({
-		
+
 		events: {
 		"click .singleIllLink": "singleIllView",
 	   "click .remove": "removePhoto",
@@ -29,7 +29,7 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			var url = "photo?id=" + id;
 		    Events.trigger("router:navigate", url);
 		},
-		
+
 		removePhoto: function(e){
 			"use strict";
 			e.preventDefault();
@@ -62,11 +62,11 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			var start = "";
 			var end = "";
 			var point = url.indexOf('upload');
-		
+
 			var size = this.checkOption(this.$( '.cropSize' ).val()) ? "" : this.$( '.cropSize' ).val() + ",";
 			var gravity = this.checkOption(this.$( '.cropGravity' ).val()) ? "" : this.$('.cropGravity').val();
-			
-			
+
+
 			start = url.slice(0 , (point+6));
 			end = url.slice(point + 6);
 			newUrl = start + "/c_crop,h_" + size + gravity + end;
@@ -82,7 +82,6 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 
 		checkOption: function(option){
 			if(option === 'Select Direction' || option === 'Select Size'){
-				console.log("in the true with this " + option);
 				return true;
 			}
 			return false;
@@ -93,7 +92,6 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 		  var self = this;
 			var size = this.$( '.cropSize' ).val();
 			var gravity = this.$('.cropGravity').val();
-			console.log("the size is " + size);
 			var url = this.model.attributes.image.url;
 			var point = url.indexOf('upload');
 
@@ -102,11 +100,8 @@ define(["backbone", "handlebars", "jquery", "events"], function(Backbone, Handle
 			var newUrl = "";
 			if(!this.checkOption(size) && !this.checkOption(gravity)){
 			  newUrl = start + "/c_crop,h_" + size + "," + gravity + end;
-			  console.log("making the reuest with");
-			  console.log("id " + this.model.id);
-			  console.log("url " + newUrl);
 			  //Make an ajax request to whatever url we define in our route
-			  $.post('/updateCrops', 
+			  $.post('/updateCrops',
 			  	{data: {
 			  		id: this.model.id,
 			  		cropped: newUrl
