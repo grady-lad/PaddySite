@@ -12,7 +12,7 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 		return row;
 		 	//this.$el.append(row);
 	 	},
-	 	
+
 	 	renderB: function(){
 	 		//We want to call this from the router
 	 		//When we have created an image or a row call resolve.
@@ -28,7 +28,6 @@ define(["backbone", "views/photo"], function(Backbone, photoView) {
 	 				if(counter === 0 ||counter % 3 === 0){
 		 				row = self.setUpNewRow();
 		 			}
-		 			console.log(photo.attributes);
 		 			var photoV = new photoView({model: photo});
 		 			row.append(photoV.render().el);
 		 			$(id).bind('load', function(){
