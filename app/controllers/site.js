@@ -36,19 +36,30 @@ exports.sendQuery = function(req, res){
 	req.checkBody('email', 'A valid email address').isEmail();
 	req.checkBody('suggestion', 'An actual Message').notEmpty();
 	var errors = req.validationErrors();
+  var generator = require('xoauth2').createXOAuth2Generator({
+    user: process.env.SMTP_USER,
+    clientId: process.env.SMTP_CLIENT_ID,
+    clientSecret: process.env.SMTP_CLIENT_SECRET,
+    refreshToken: process.env.SMTP_REFRESH_TOKEN
+});
+
+// listen for token updates
+// you probably want to store these to a db
+generator.on('token', function(token){
+    console.log('New token for %s: %s', token.user, token.accessToken);
+});
 	/**Nodemailer setup**/
 	var transporter = nodemailer.createTransport(smtpTransport({
 		service: 'Gmail',
 		debug: true,
-		auth: { 
-        	user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-        }
+		auth: {
+      xoauth2: generator
+    }
     }));
     /**Mail options and mail construction**/
     var mailOpts = {
         to: process.env.SMTP_USER,
-        subject: 'Suggestions',
+        subject: 'Paddhuiy Website',
         text: 'email: ' + req.body.email + '\n' + '\n' + req.body.suggestion
     };
     /** Senfing mail via nodemailer**/
@@ -64,8 +75,8 @@ exports.sendQuery = function(req, res){
     		/** Render with success message**/
     		transporter.close();
     		res.render('site/contact', {
-    			title: 'Contact', 
-    			message: 'Message sent, Thanks!', 
+    			title: 'Contact',
+    			message: 'Message sent, Thanks!',
     			errors: {}
     		});
     	});
