@@ -8,7 +8,7 @@
   "engines": {
     "node": "4.1.1"
     },
-  "repository": { 
+  "repository": {
     "type": "git",
     "url": "https://github.com/grady-lad/PaddySite.git"
   },
@@ -40,7 +40,8 @@
     "path": "0.11.14",
     "passport": "0.2.1",
     "passport-local": "1.0.0",
-    "stylus": "0.49.2"
+    "stylus": "0.49.2",
+    "xoauth2": "1.2.0"
   },
   "devDependencies": {
     "chai": "1.x",
